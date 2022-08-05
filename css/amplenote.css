@@ -1,0 +1,107 @@
+/* Extracted from Medium in 2020 */
+.ample-editor.readonly {
+  width: 100%;
+  margin: 0;  
+  padding: 35px 20px 25px;
+  border-top: 1px solid #e0e4eb; /* $default-border-color */
+  line-height: 1.5;
+}
+
+@media only screen and (min-width: 600px) {
+  .ample-editor.readonly {
+    width: 95%;
+    max-width: 750px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.ample-editor.readonly .ProseMirror {
+  font-family: Fira Code,Monaco,Consolas,Ubuntu Mono,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,monospace,sans-serif;/* $blog-font-family */
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+@media only screen and (min-width: 600px) {
+  .ample-editor.readonly .ProseMirror {
+    font-size: 16px;
+  }
+}
+
+.ample-editor.readonly h1, h2, h3, h4, h1.heading, h2.heading, h3.heading, h4.heading {
+  font-family: Fira Code,Monaco,Consolas,Ubuntu Mono,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,monospace,sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.18;
+}
+
+.ample-editor.readonly h1, h1.heading {
+  font-size: 26px;
+}
+
+.ample-editor.readonly h2, h2.heading {
+  font-size: 24px;
+}
+
+.ample-editor.readonly h3, h3.heading {
+  font-size: 21px;
+}
+
+.ample-editor.readonly h4, h4.heading {
+  font-size: 18px;
+}
+
+.ample-editor.readonly b, strong {
+  font-weight: 600;
+}
+
+.ample-editor.readonly p, .paragraph {
+  margin: 0; /* Since AN inserts duplicate p tags between paragraph */
+  letter-spacing: -0.004em;
+}
+
+.ample-editor.readonly blockquote {
+  border-left: 3px solid #e0e4eb;
+  padding-left: 20px;
+  color: #757575;
+}
+
+.ample-editor.readonly ul li {
+  display: block; /* Default display for AN is "list-item" which duplicates the li's disc for reasons WBH doesn't understand */
+  margin-top: 1.05em;
+  margin-left: 15px;
+  margin-bottom: -0.46em;
+}
+
+.ample-editor.readonly a.link {
+  display: inline;
+  align-items: center;
+}
+
+.ample-editor.readonly a.link > span {
+  margin-right: 0;
+}
+
+.ample-editor.readonly a.link > .icon {
+  position: relative;
+  top: 5px;
+  height: 22px;
+  margin-left: 0;
+}
+
+.ample-editor.readonly .promo-banner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 35px 20px 25px;
+  line-height: 1.5;
+}
+
+@media only screen and (min-width: 600px) {
+  .promo-banner {
+    width: 95%;
+    margin: 0 auto;
+    max-width: 750px;
+  }
+}
