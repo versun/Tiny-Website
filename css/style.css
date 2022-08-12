@@ -12,8 +12,12 @@ body {
   background: #fefefe;
   font-family: Fira Code,Monaco,Consolas,Ubuntu Mono,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,monospace,sans-serif;
 }
+.dark{
+	color:#f9f9f9;
+	background-color: #222;
+}
 a {
-    color: #007bff;
+    color: #eba613;
 }
 nav {
   margin-bottom: 20px;
