@@ -21,15 +21,15 @@ function mode() {
   var amplenote = document.getElementsByClassName("amplenote-embed")[0];
   if (darkMode || darkMode) {
     document.body.classList.add("dark");
-    button.innerText = "Light Mode";
     amplenote.setAttribute("data-styles", "/css/amplenote-dark.css");
-    
+    document.querySelector("iframe").contentWindow.location.reload(true);
+    button.innerText = "Light Mode";
   }
   else {
     document.body.classList.remove("dark");
-    button.innerText = "Dark Mode";
     amplenote.setAttribute("data-styles", "/css/amplenote.css");
     document.querySelector("iframe").contentWindow.location.reload(true);
+    button.innerText = "Dark Mode";
   }
 }
 
