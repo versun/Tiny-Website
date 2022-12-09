@@ -1,6 +1,5 @@
 #!/bin/bash
 astro_path="/workspaces/Tiny-Website-v3"
-blog_path="/workspaces/blog"
 amplenote_path="/workspaces/Tiny-Website-v3/notes"
 astro_markdown_layout="layout: ../../layouts/BlogPost.astro"
 publish_tags=(
@@ -46,6 +45,3 @@ for file in $amplenote_path/*.md
   mv "$amplenote_path/images" "$astro_path/public/"
   mv "$amplenote_path/attachments" "$astro_path/public/"
   (cd $astro_path; npx astro build;)
-  
-  rm -rf $blog_path/!(.git)
-  cp -r "$astro_path/dist/*" "$blog_path/"
