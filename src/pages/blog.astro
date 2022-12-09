@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navgation from "../components/navigation.astro";
+import Footer from "../components/footer.astro";
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+const old_posts = (await Astro.glob('./blog/old/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+---
+<Layout title="Blog">
+      <Navgation />
+
+      <section>
+        <div class="content container">
+          <h1 class="title">Blog</h1>
+          <ul>
+            {posts.map((post) => (
+              <li>
+                <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  })}
+                </time>
+                <a href={post.url}>{post.frontmatter.title}</a>
+              </li>
+            ))}
+          </ul>
+          <h2 class="subtitle">Early</h2>
+          <ul>
+            {old_posts.map((post) => (
+              <li>
+                <a href={post.url}>{post.frontmatter.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    
+      <Footer />
+  </Layout>

@@ -1,0 +1,44 @@
+---
+import Navigation from '../components/navigation.astro';
+import Footer from '../components/footer.astro';
+import Layout from './Layout.astro';
+import Giscus from '../components/giscus.astro';
+export interface Props {
+	content:{
+  title: string;
+  };
+}
+
+const {
+  content: { title, }
+  } = Astro.props;
+
+const posts = (await Astro.glob('../pages/writeup/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+---
+<Layout title={title}>
+  <Navigation />
+  <section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">{title}</h2>
+      <slot />
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <time datetime={post.frontmatter.created}>
+                {new Date(post.frontmatter.created).toLocaleDateString('en-us', {
+                  year: 'numeric',
+                  month: 'numeric',
+                  day: 'numeric',
+                })}
+              </time>
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </li>
+          ))}
+        </ul>
+    </div>
+  </section>
+  <Giscus />
+  <Footer />
+</Layout>

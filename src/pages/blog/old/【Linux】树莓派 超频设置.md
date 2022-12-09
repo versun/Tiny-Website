@@ -1,0 +1,42 @@
+---
+layout: ../../../layouts/BlogPost.astro 
+title: "【Linux】树莓派 超频设置"
+uuid: be17070e-4897-11ed-af17-f296579e3926
+version: 3
+created: Sun, 13 Jun 2021 14:13:49 +0000
+tags:
+- imported/evernote
+---
+
+设备：树莓派4b 4G内存\
+编辑/boot/config.txt\
+添加以下代码：\
+arm_freq=2000\
+over_voltage=10\
+保存，重启即可。\
+建议可以从1750开始超，如果能顺利重启，则再设置为2000\
+如果无法顺利重启，可以把SD卡插到其他电脑上，去修改config文件即可。\
+**其他相关命令：**\
+当前电压：\
+vcgencmd measure_volts\
+当前温度：\
+vcgencmd measure_temp\
+当前频率：\
+sudo cat /sys/devices/system/cpu/cpu0/cpufreqq/cpuinfo_cur_freq\
+最大频率：\
+sudo cat /sys/devices/system/cpu/cpu0/cpufreqq/cpuinfo_max_freq\
+**性能测试**
+
+- 表示创建4个线程来寻找 √￣20000 以内的质数：\
+sysbench --num-threads=4 --test=cpu --cpu-max-prime=20000 run
+
+- 跑分软件nbench\
+wget <[http://www.math.utah.edu/\~mayer/linux/nbench-byte-2.2.3.tar.gz](http://www.math.utah.edu/\~mayer/linux/nbench-byte-2.2.3.tar.gz)>\
+tar -xvzf nbench-byte-2.2.3.tar.gz\
+cd nbench-byte-2.2.3\
+make\
+./nbench\
+**压力测试**\
+期间温度不超85度为正常。\
+sudo apt install stress\
+stress -c 4 -t 10m -v
