@@ -27,21 +27,24 @@ rm -rf "$astro_path/public/attachments"
 (cd $amplenote_path; rename -e "s/[\[\]{}\s]//g" *.md)
 
 for file in $amplenote_path/*.md
+do
+  for index in "${!publish_tags[@]}"
   do
-    for index in "${!publish_tags[@]}"
-    do
-      if grep "${publish_tags[index]}" "$file"
-      then
-        #sed -i 's/\!\[\](images\//\!\[\](https:\/\/images.versun.me\/images\//g' "$file" #use R2 CDN
-        sed -i 's/\!\[\](images\//\!\[\](\/images\//g' "$file"
-        sed -i 's/\](attachments\//\](\/attachments\//g' "$file"
-        sed -i '/^layout:/d' "$file"
-        sed -i "1 a $astro_markdown_layout" "$file"
-        mv "$file" "$astro_path/src/pages/${astro_pages_folder[index]}/" 
-        break
-      fi
-    done
+    if grep "${publish_tags[index]}" "$file"
+    then
+      #sed -i 's/\!\[\](images\//\!\[\](https:\/\/images.versun.me\/images\//g' "$file" #use R2 CDN
+      sed -i 's/\!\[\](images\//\!\[\](\/images\//g' "$file"
+      sed -i 's/\](attachments\//\](\/attachments\//g' "$file"
+      sed -i '/^layout:/d' "$file"
+      sed -i "1 a $astro_markdown_layout" "$file"
+      mv "$file" "$astro_path/src/pages/${astro_pages_folder[index]}/" 
+      break
+    fi
   done
-  mv "$amplenote_path/images" "$astro_path/public/"
-  mv "$amplenote_path/attachments" "$astro_path/public/"
-  (cd $astro_path; npx astro build;)
+done
+
+mv "$amplenote_path/images" "$astro_path/public/"
+mv "$amplenote_path/attachments" "$astro_path/public/"
+(cd $astro_path; npx astro build;)
+(cd $astro_path/src/; date +"%Y/%m/%d" > lastUpdate.md)
+
