@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>Personal Bookmark Manager | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">Personal Bookmark Manager</h2>
+      <p><strong>Created: 2022-11-14</strong></p>
+<p><strong>Status: In Progress</strong></p>
+<h2 id="idea">Idea</h2>
+<p>我原先一直使用的是<a href="https://www.start.me/">start.me</a> 的书签管理，但网络访问一直不是很顺畅，加载的很慢，可能我的书签太多了吧，再加上最近一直弹窗广告。。。</p>
+<p>所以就有了迁移的念头了，这几周试用过国内外不同的在线书签管理应用，但都没有一个能满足需求的</p>
+<p>因此就萌生了这么个想法。</p>
+<h2 id="build">Build</h2>
+<p>下面介绍下主要的几个开发重点，如需查看具体的开发过程(流水账)，请查看这里。</p>
+<p>首先，在<a href="https://codepen.io/">Codepen</a>上建个pen，方便实施查看，也不用本地搭建环境，在公司或者在家里都可以继续编程。</p>
+<p>然后先用模板代码：</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">&#x3C;!DOCTYPE html> </span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;html lang="en"> </span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;head> </span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;meta charset="UTF-8"> </span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;meta name="viewport" content="width=device-width, initial-scale=1"> </span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> </span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;title>My Bookmarks&#x3C;/title> </span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;/head> </span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;body> </span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;header> </span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;nav> &#x3C;/nav> </span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;/header> </span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;main> &#x3C;/main> </span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;footer> &#x3C;/footer> </span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;/body> </span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;/html></span></span></code></pre>
+<p>是的，依旧使用<a href="https://bulma.io">Bulma</a>的css框架， 真的很好用。</p>
+<p>整体的UI设计参考<a href="https://demo.linkding.link">Linkding</a>的，简洁直观，个人很喜欢它的风格</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/7efe475d-5d1a-4bcb-83e4-83fb2b591701.png" alt=""></p>
+<p>我的设计呢，很简单，单栏模式，所有的操作均在当前页面上完成，减少跳转，比如点击书签编辑按钮，直接浮现对话框来修改。</p>
+<p>经过几天的调试，整体效果如下：</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/e4edab9a-6c88-46b8-91ec-621239929e15.png" alt=""></p>
+<p>发布第一版<a href="https://github.com/versun/Personal-Bookmark-Manager/commit/fa344eb12a196483a62b7ca2a08678dd7016e69a">代码</a> ，并部署到Cloudflare的Pages上</p>
+<p>接下来就是编写功能代码了，原先想直接使用Flask来搭建，毕竟用python真的很爽，但后来想了下，这个项目主要的目的是深入熟悉JavaScript和DOM，所以决定还是用纯js来实现。</p>
+<p>考虑到数据存储，用SQLite最方便，但不知道cloudflare的Pages服务要怎么使用SQLite数据库。</p>
+<p>搜索了下<a href="https://developers.cloudflare.com/pages/platform/functions/bindings/#d1-databases">官方文档</a>，发现还真可以，使用<a href="https://developers.cloudflare.com/d1/get-started/">D1 databases</a>即可实现，因为这个服务还是Alpha阶段，所以是免费的，看来还得做好备份。。</p>
+<p>首先，创建个数据库</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/9c4da506-e2c1-4c47-b6ad-61f672d74fe8.png" alt=""></p>
+<p>然后还需要创建个worker来供pages去操作这个db</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/51cf3525-06ca-46db-ab25-9999ba097c4c.png" alt=""></p>
+<p>创建完以后，进入Pages，选择对应的网站名称，进入Settings下的Funstions设置</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/b2e45599-895f-4efd-b79c-fb4bf0ad6ba9.png" alt=""></p>
+<p>在Functions的下方，绑定刚刚创建的D1数据库</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/b9aa6d43-eb98-4f91-890f-e28dc3e06730.png" alt=""></p>
+<p>注意，Prodction和Preview都需要绑定，如下图</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/0c27ceef-93bd-4cdc-9e1f-85179fa05341.png" alt=""></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/2274d7ca-60a7-4b66-be3b-6f356cb5ee38.png" alt=""></p>
+<p>接着绑定worker，同理，production和preview都要绑定，这里我使用同一个service和db，你也可以单独创建专用与preview的db和worker</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/452e1401-9da0-4a89-9995-60dc6ea9e817.png" alt=""></p>
+<p>由于要在本地操作db，所以本地需要安装wrangler:  <code>npm install -g wrangler</code></p>
+<p>然后登录cloudfalre <code>npx wrangler login</code></p>
+<p>登录成功后，使用默认配置来初始化: <code>npx wrangler init worker-bookmarks</code></p>
+<p>然后，修改<code>worker-bookmarks/wrangler.toml</code>配置文件：</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/c191fad0-ad7c-4a05-840e-8c779de389ef.png" alt=""></p>
+<p>本地创建个测试db: <code>npx wrangler d1 create d1_bookmarks</code>。</p>
+<p>接着新建一个sql文件来新建table，关于字段类型，可查看<a href="https://www.sqlite.org/datatype3.html">该文档</a></p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">/*createTable.sql*/</span></span>
+<span class="line"><span style="color: #abb2bf">DROP TABLE IF EXISTS main;</span></span>
+<span class="line"><span style="color: #abb2bf">CREATE TABLE main (id INTEGER,title TEXT,url TEXT,tag TEXT,page INTEGER,description TEXT,note TEXT,PRIMARY KEY (`id`));</span></span>
+<span class="line"><span style="color: #abb2bf">INSERT INTO main(id,title,url,tag,page,description,note) VALUES (1,'Google','https://www.google.com','#search',0,'This is a description','This is a note'),(2,'Google','https://www.google.com','#search #google',1,'This is a description','This is a note');</span></span></code></pre>
+<p>这里我创建了以下几个列：</p>
+<p>id    text</p>
+<p>title    text</p>
+<p>url    text</p>
+<p>tag    text</p>
+<p>page    integer</p>
+<p>description    text</p>
+<p>note    text</p>
+<p>对本地的db进行操作：<code>npx wrangler d1 execute d1_bookmarks --local  --file=./createTable.sql</code></p>
+<p>测试下：<code>npx wrangler d1 execute d1_bookmarks --local --command='SELECT \* FROM main'</code></p>
+<p>没问题后，就可以往云上的db进行操作</p>
+<p><code>npx wrangler d1 execute d1_bookmarks --file=./createTable.sql</code></p>
+<p>测试下：<code>npx wrangler d1 execute d1_bookmarks --command='SELECT \* FROM main'</code></p>
+<p>然后发布这个woker的设置：<code>npx wrangler publish</code></p>
+<p>由于我们在网页端已经创建了同名的worker，所以它会提示是否覆盖，选择y即可</p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/06b97607-2979-4592-8930-ef6f9c1a54cc.png" alt=""></p>
+<p>接下来就是编写api，涉及到fetch函数，完全不懂。。。看下<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">MDN资料</a> ，同时参考官方的<a href="https://github.com/cloudflare/d1-northwind">demo</a>，照猫画虎下就可以了：</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">/*worker-bookmarks/index.ts*/</span></span>
+<span class="line"><span style="color: #abb2bf">export interface Env {</span></span>
+<span class="line"><span style="color: #abb2bf">	DB:D1Database;</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">export default {</span></span>
+<span class="line"><span style="color: #abb2bf">	async fetch(request: Request, env: Env) {</span></span>
+<span class="line"><span style="color: #abb2bf">	  const url = new URL(request.url);</span></span>
+<span class="line"><span style="color: #abb2bf">	  const q = url.searchParams.get('q');</span></span>
+<span class="line"><span style="color: #abb2bf">	  const getByPage = env.DB.prepare("SELECT * FROM main WHERE page = ?");</span></span>
+<span class="line"><span style="color: #abb2bf">	  const getById = env.DB.prepare("SELECT * FROM main WHERE id = ?");</span></span>
+<span class="line"><span style="color: #abb2bf">	  const getByTag = env.DB.prepare("SELECT * FROM main WHERE tag LIKE ?");</span></span>
+<span class="line"><span style="color: #abb2bf">	  const getBySearch = env.DB.prepare("SELECT * FROM main WHERE title LIKE ?1 OR tag LIKE ?1 OR description LIKE ?1 OR note LIKE ?1");</span></span>
+<span class="line"><span style="color: #abb2bf">	  var results;</span></span>
+<span class="line"><span style="color: #abb2bf">	  if(!q){return new Response("Call /api/id/q?=1");}</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">	  switch(url.pathname){</span></span>
+<span class="line"><span style="color: #abb2bf">		case "/api/id":</span></span>
+<span class="line"><span style="color: #abb2bf">			results = await (await getById.bind(q).all()).results;</span></span>
+<span class="line"><span style="color: #abb2bf">			break;</span></span>
+<span class="line"><span style="color: #abb2bf">		case "/api/page":</span></span>
+<span class="line"><span style="color: #abb2bf">			results = await (await getByPage.bind(q).all()).results;</span></span>
+<span class="line"><span style="color: #abb2bf">			break;</span></span>
+<span class="line"><span style="color: #abb2bf">		case "/api/tag":</span></span>
+<span class="line"><span style="color: #abb2bf">			results = await (await getByTag.bind(`%${q}%`).all()).results;</span></span>
+<span class="line"><span style="color: #abb2bf">			break;</span></span>
+<span class="line"><span style="color: #abb2bf">		case "/api/search":</span></span>
+<span class="line"><span style="color: #abb2bf">			results = await (await getBySearch.bind(`%${q}%`).all()).results;</span></span>
+<span class="line"><span style="color: #abb2bf">			break;</span></span>
+<span class="line"><span style="color: #abb2bf">		default:</span></span>
+<span class="line"><span style="color: #abb2bf">	  }</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">	  return results ? Response.json(results) : new Response("Call /api/id/q?=1");</span></span>
+<span class="line"><span style="color: #abb2bf">	},</span></span>
+<span class="line"><span style="color: #abb2bf">  };</span></span></code></pre>
+<p>打开本地server服务：<code>npx wrangler dev --local --persist</code>，测试正常</p>
+<p>在找资料的时候，发现SQLite是有<a href="https://www.sqlite.org/autoinc.html">rowid(oid)</a>的，也就是说，其实不用专门添加一个id的列来自动递增，而且添加的id列貌似检索起来没有自带的rowid快，所以把id列删除，重新建表</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">/*createTable.sql*/</span></span>
+<span class="line"><span style="color: #abb2bf">DROP TABLE IF EXISTS main;</span></span>
+<span class="line"><span style="color: #abb2bf">CREATE TABLE main (title TEXT,url TEXT,tag TEXT,page INTEGER,description TEXT,note TEXT);</span></span>
+<span class="line"><span style="color: #abb2bf">INSERT INTO main(title,url,tag,page,description,note) VALUES ('Google','https://www.google.com','#search #google',0,'first description','first note'),('Baidu','https://www.baidu.com','#search #baidu',1,'second description','second note');</span></span></code></pre>
+<p>通过几天的摸索，基本完成了初步的API编写，具体的index.ts代码可<a href="https://github.com/versun/Personal-Bookmark-Manager/commit/8c55c28a42c43e77da33e9dcfd8b100aa7b90a9c#diff-733121cdf5237e992a0aff2489956b817faa59a8d6f9766bf0ab2ee65295dbab">查看这里</a>，返回代码和测试代码还没有编写。。但影响不大，应该能用，以后有空了再写。。。</p>
+<p>接下来，就是给网站添加js代码了，</p>
+<p>首先需要自动获取url的meta信息，比如标题和描述，同样，需要使用cloudflare的worker，新建一个worker，这次直接在CLI中创建：<code>npx wrangler init getUrlMeta</code></p>
+<p>查看<a href="https://developers.cloudflare.com/workers/runtime-apis/request/">官方文档</a>，可以使用API: request</p>
+<h3 id="2022-12-06">2022-12-06</h3>
+<p>几天下来没有明显进展，获取meta信息的功能一直实现不出来，主要是底层的原理不是很懂，先放一边吧。。</p>
+<p>先做导入书签的功能，尽快做出能用的最小版本，先上线用了再说。</p>
+<h2 id="conclusion">Conclusion</h2>
+<h2 id="references">References:</h2>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

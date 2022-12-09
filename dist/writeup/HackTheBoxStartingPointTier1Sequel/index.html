@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 1] Sequel | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 1] Sequel</h2>
+      <p><strong>TASK 1</strong></p>
+<p><strong>What does the acronym SQL stand for?</strong> Structured Query Language</p>
+<p><strong>TASK 2</strong></p>
+<p><strong>During our scan, which port running mysql do we find?</strong> 3306</p>
+<p><strong>TASK 3</strong></p>
+<p><strong>What community-developed MySQL version is the target running?</strong> MariaDB</p>
+<p><strong>TASK 4</strong></p>
+<p><strong>What switch do we need to use in order to specify a login username for the MySQL service?</strong> -u</p>
+<p><strong>TASK 5</strong></p>
+<p><strong>Which username allows us to log into MariaDB without providing a password?</strong> root</p>
+<p><strong>TASK 6</strong></p>
+<p><strong>What symbol can we use to specify within the query that we want to display everything inside a table?</strong> *</p>
+<p><strong>TASK 7</strong></p>
+<p><strong>What symbol do we need to end each query with?</strong> ;</p>
+<p><strong>SUBMIT FLAG</strong></p>
+<p>Steps:</p>
+<p>mysql  -u  root  -h  ip</p>
+<blockquote>
+<p>show databases;</p>
+</blockquote>
+<blockquote>
+<p>use htb;</p>
+</blockquote>
+<blockquote>
+<p>show tables;</p>
+</blockquote>
+<blockquote>
+<p>select * from config;</p>
+</blockquote>
+<hr>
+<p>Note:</p>
+<p><a href="/attachments/Sequel.pdf">Sequel.pdf</a></p>
+<p><a href="https://www.interviewbit.com/blog/mysql-commands/">MySQL Commands: Full List With Examples - InterviewBit</a></p>
+<p>sudo apt install mysql*</p>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 1] Appointment | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 1] Appointment</h2>
+      <p><strong>TASK 1</strong></p>
+<p><strong>What does the acronym SQL stand for?</strong> Structured Query Language</p>
+<p><strong>TASK 2</strong></p>
+<p><strong>What is one of the most common type of SQL vulnerabilities?</strong> SQL injection</p>
+<p><strong>TASK 3</strong></p>
+<p><strong>What does PII stand for?</strong> Personally Identifiable Information</p>
+<p><strong>TASK 4</strong></p>
+<p><strong>What does the OWASP Top 10 list name the classification for this vulnerability?</strong> A03:2021-Injection</p>
+<p><strong>TASK 5</strong></p>
+<p><strong>What service and version are running on port 80 of the target?</strong> Apache httpd 2.4.38 ((Debian))</p>
+<p><strong>TASK 6</strong></p>
+<p><strong>What is the standard port used for the HTTPS protocol?</strong> 443</p>
+<p><strong>TASK 7</strong></p>
+<p><strong>What is one luck-based method of exploiting login pages?</strong> brute-forcing</p>
+<p><strong>TASK 8</strong></p>
+<p><strong>What is a folder called in web-application terminology?</strong> directory</p>
+<p><strong>TASK 9</strong></p>
+<p><strong>What response code is given for “Not Found” errors?</strong> 404</p>
+<p><strong>TASK 10</strong></p>
+<p><strong>What switch do we use with Gobuster to specify we’re looking to discover directories, and not subdomains?</strong> dir</p>
+<p><strong>TASK 11</strong></p>
+<p><strong>What symbol do we use to comment out parts of the code?</strong> #</p>
+<p><strong>SUBMIT FLAG</strong></p>
+<p>Steps:</p>
+<p>nmap  -sC  -sV  ip</p>
+<p>gobuster   dir  —url  <a href="http://ip/">http://ip/</a>  —wordlist  /usr/share/dirub/directory-list-2.3-small.txt</p>
+<p>Here is an example of how authentication works using PHP &#x26; SQL:</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">&#x3C;?php</span></span>
+<span class="line"><span style="color: #abb2bf">mysql_connect("localhost", "db_username", "db_password"); # Connection to the SQL</span></span>
+<span class="line"><span style="color: #abb2bf">Database.</span></span>
+<span class="line"><span style="color: #abb2bf">mysql_select_db("users"); # Database table where user information is stored.</span></span>
+<span class="line"><span style="color: #abb2bf">$username=$_POST['username']; # User-specified username.</span></span>
+<span class="line"><span style="color: #abb2bf">$password=$_POST['password']; #User-specified password.</span></span>
+<span class="line"><span style="color: #abb2bf">#######注意以下这行代码</span></span>
+<span class="line"><span style="color: #abb2bf">$sql="SELECT * FROM users WHERE username='$username' AND password='$password'";</span></span>
+<span class="line"><span style="color: #abb2bf">#######</span></span>
+<span class="line"><span style="color: #abb2bf"># Query for user/pass retrieval from the DB.</span></span>
+<span class="line"><span style="color: #abb2bf">$result=mysql_query($sql);</span></span>
+<span class="line"><span style="color: #abb2bf"># Performs query stored in $sql and stores it in $result.</span></span>
+<span class="line"><span style="color: #abb2bf">$count=mysql_num_rows($result);</span></span>
+<span class="line"><span style="color: #abb2bf"># Sets the $count variable to the number of rows stored in $result.</span></span>
+<span class="line"><span style="color: #abb2bf">if ($count==1){</span></span>
+<span class="line"><span style="color: #abb2bf"> # Checks if there's at least 1 result, and if yes:</span></span>
+<span class="line"><span style="color: #abb2bf"> $_SESSION['username'] = $username; # Creates a session with the specified $username.</span></span>
+<span class="line"><span style="color: #abb2bf"> $_SESSION['password'] = $password; # Creates a session with the specified $password.</span></span>
+<span class="line"><span style="color: #abb2bf"> header("location:home.php"); # Redirect to homepage</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf">else { # If there's no singular result of a user/pass combination:</span></span>
+<span class="line"><span style="color: #abb2bf"> header("location:login.php");</span></span>
+<span class="line"><span style="color: #abb2bf"> # No redirection, as the login failed in the case the $count variable is not equal to</span></span>
+<span class="line"><span style="color: #abb2bf">1, HTTP Response code 200 OK.</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf">?></span></span></code></pre>
+<p>在登录页面中，输入Username: admin’#，密码无所谓，点击登录即可成功注入</p>
+<p><strong>Note:</strong></p>
+<p><a href="/attachments/Appointment.pdf">Appointment.pdf</a></p>
+<p>ref: <a href="https://www.bing.com/ck/a?!&#x26;&#x26;p=954d862a78695fa0JmltdHM9MTY2Mjk0MDgwMCZpZ3VpZD0xMjM0MWNiNi1mYzM3LTYyZWYtMGRjZC0wZDQyZmRlNTYzNjImaW5zaWQ9NTE2Ng&#x26;ptn=3&#x26;hsh=3&#x26;fclid=12341cb6-fc37-62ef-0dcd-0d42fde56362&#x26;u=a1aHR0cHM6Ly9vd2FzcC5vcmcvVG9wMTAvQTAzXzIwMjEtSW5qZWN0aW9uLw&#x26;ntb=1">A03 Injection - OWASP Top 10:2021</a></p>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

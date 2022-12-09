@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>Gatsby快速入门 | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">Gatsby快速入门</h2>
+      <p>Ref: <a href="https://www.gatsbyjs.com/docs/tutorial/">Tutorial | Gatsby (gatsbyjs.com)</a></p>
+<h2 id="0-set-up-your-development-environment"><strong>0. Set Up Your Development Environment</strong></h2>
+<p><strong>Require</strong>:</p>
+<p><a href="https://nodejs.dev">Node.js</a> (v14.15 or newer)</p>
+<p>Git</p>
+<p>Gatsby command line interface (CLI) (v4 or newer): <code>npm install -g gatsby-cli</code></p>
+<p>Visual Studio Code</p>
+<h2 id="1create-and-deploy-your-first-gatsby-site"><strong>1.Create and Deploy Your First Gatsby Site</strong></h2>
+<p>See all commands at : <a href="https://www.gatsbyjs.com/docs/reference/gatsby-cli/">Commands (Gatsby CLI)</a></p>
+<p>Create command: <code>gatsby new</code></p>
+<p>Run command: <code>gatsby develop</code> or  <code>npm run develop</code></p>
+<h2 id="2-use-and-style-react-components"><strong>2. Use and Style React Components</strong></h2>
+<p>Example blog: <a href="https://gatsbytutorialexample.gatsbyjs.io/">Home Page | My First Gatsby Site (gatsbyjs.io)</a></p>
+<h3 id="create-new-page">Create new page</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">// src/pages/index.js</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">// Step 1: Import React</span></span>
+<span class="line"><span style="color: #abb2bf">import * as React from 'react'</span></span>
+<span class="line"><span style="color: #abb2bf">import { Link } from 'gatsby'   //Import and use a pre-built component from another package.</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">// Step 2: Define your component</span></span>
+<span class="line"><span style="color: #abb2bf">const IndexPage = () => {</span></span>
+<span class="line"><span style="color: #abb2bf">   return (</span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;main></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;h1>Welcome to my Gatsby site!&#x3C;/h1></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;Link to="/about">About&#x3C;/Link></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;p>I'm making this by following the Gatsby Tutorial.&#x3C;/p></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;/main></span></span>
+<span class="line"><span style="color: #abb2bf">  )</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">// Add a page title by Gatsby Head API: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/</span></span>
+<span class="line"><span style="color: #abb2bf">export const Head = () => &#x3C;title>Home Page&#x3C;/title></span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">// Step 3: Export your component</span></span>
+<span class="line"><span style="color: #abb2bf">export default IndexPage</span></span></code></pre>
+<h3 id="create-your-own-reusable-building-block-component">Create your own reusable “building block” component.</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">// src/components/frame.js</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">import React from 'react'</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">const Frame = ({ pageTitle, children }) => { //Use component props to change the way a component renders.</span></span>
+<span class="line"><span style="color: #abb2bf">  return (</span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;div></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;h1>{pageTitle}&#x3C;/h1></span></span>
+<span class="line"><span style="color: #abb2bf">      { children }   //Use the children prop to create a wrapper component.</span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;/div></span></span>
+<span class="line"><span style="color: #abb2bf">  )</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">export default Frame</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">// src/pages/gallery.js</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">import React from 'react'</span></span>
+<span class="line"><span style="color: #abb2bf">import Frame from '../components/frame'</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">const GalleryPage = () => {</span></span>
+<span class="line"><span style="color: #abb2bf">  return (</span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;Frame pageTitle="Gallery Page"></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;p>This will be passed in as children&#x3C;/p></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;/Frame></span></span>
+<span class="line"><span style="color: #abb2bf">  )</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf">export default GalleryPage</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">//In the browser, the actual DOM elements will look something like this:</span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;div></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;h1>Gallery Page&#x3C;/h1></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;p>This will be passed in as children&#x3C;/p></span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;/div></span></span></code></pre>
+<h3 id="style-components-with-css-modules">Style components with CSS Modules</h3>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">// src/components/my-component.module.css</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">.title {</span></span>
+<span class="line"><span style="color: #abb2bf">  color: blue;</span></span>
+<span class="line"><span style="color: #abb2bf">  font-size: 3rem;</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">// src/components/my-component.js</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">import * as React from 'react'</span></span>
+<span class="line"><span style="color: #abb2bf">import { title } from './my-component.module.css'</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">const MyComponent = () => {</span></span>
+<span class="line"><span style="color: #abb2bf">  return (</span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;h1 className={title}></span></span>
+<span class="line"><span style="color: #abb2bf">      Super Sweet Title Page</span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;/h1></span></span>
+<span class="line"><span style="color: #abb2bf">  )</span></span>
+<span class="line"><span style="color: #abb2bf">}</span></span>
+<span class="line"><span style="color: #abb2bf">export default MyComponent</span></span></code></pre>
+<h2 id="3add-features-with-plugins"><strong>3.Add Features with Plugins</strong></h2>
+<h2 id="4query-for-data-with-graphql"><strong>4.Query for Data with GraphQL</strong></h2>
+<h2 id="5transform-data-to-use-mdx"><strong>5.Transform Data to Use MDX</strong></h2>
+<h2 id="6create-pages-programmatically"><strong>6.Create Pages Programmatically</strong></h2>
+<h2 id="7add-dynamic-images-from-data"><strong>7.Add Dynamic Images from Data</strong></h2>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

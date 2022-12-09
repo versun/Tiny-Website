@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>Tiny Website v3 | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">Tiny Website v3</h2>
+      <p><strong>Created: 2022-12-08</strong></p>
+<p><strong>Status: In Progress</strong></p>
+<p>**目的：**优化笔记到博客的发布流程</p>
+<p><strong>开发日志：</strong></p>
+<p>原先以为只是一个格式转换问题 (amplenote导出笔记 -> astro框架可用的markdown)</p>
+<p>但在实施的过程中，发现问题没那么简单。。。</p>
+<p>因此记录下整个过程。</p>
+<p>首先介绍下原来的博客发布流程：</p>
+<p>在amplenote撰写 -> 导出为md文件 -> 添加astro参数 -> astro build -> 预览 -> git push</p>
+<p>更新后的流程：</p>
+<p>在amplenote撰写 -> 定期导出全部md文件 -> 预览 -> git push</p>
+<p>因此需要自动化脚本来添加astro的参数，还有astro的构建</p>
+<p>同时，新建一个git repo，只push astro build后的dist下的文件，这样cloudflare pages就无需任何的构建设置。</p>
+<p>这次页面的框架也会稍做修改，更方便后期维护。</p>
+<p>这次所有v3的代码将会放在原v2的单独文件夹下</p>
+<h3 id="自动化脚本"><strong>自动化脚本</strong></h3>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>Bulma CSS框架快速入门 | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">Bulma CSS框架快速入门</h2>
+      <p><strong>Status: Pending</strong></p>
+<p>由于我的博客并没有使用任何的框架，纯原生，所以css样式一直很混乱，</p>
+<p>所以最近在考虑使用css框架，加个类名就能完成样式简直不要太爽。</p>
+<p>在框架的选择上，我在tailwind、bootstrap、bulma之间徘徊了很久。</p>
+<p>由于我更喜欢简洁纯粹的代码，所以先排除使用了javascript的bootstrap，</p>
+<p>然后tailwind确实很好看，但是貌似功能太多，太多细节了，而且文档貌似整理的不是很好，不能很快的找到需要的信息，</p>
+<p>因此最后选择了<a href="https://bulma.io/">Bulma</a>，纯css实现，官网首页还着重标记了“<strong>No CSS knowledge required</strong>”，很适合我这种菜鸟。。</p>
+<h3 id="开始使用"><mark>开始使用</mark></h3>
+<p>使用Bulma很简单，只要在html头加入一个link标签就可以导入使用了：</p>
+<p><code> &#x3C;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"></code></p>
+<p><a href="https://bulma.io/documentation/overview/start/">官方文档</a>同时也建议使用HTML5格式</p>
+<p><code>&#x3C;!DOCTYPE html></code></p>
+<p>同时，在head内加一个meta标签：</p>
+<p><code>&#x3C;meta name="viewport" content="width=device-width, initial-scale=1"></code></p>
+<h3 id="快速一览"><mark>快速一览</mark></h3>
+<p>可以看下官方的模板，真的很简洁直观：</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">&#x3C;!DOCTYPE html></span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;html></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;head></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;meta charset="utf-8"></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;meta name="viewport" content="width=device-width, initial-scale=1"></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;title>Hello Bulma!&#x3C;/title></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;/head></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;body></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;section class="section"></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;div class="container"></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;h1 class="title"></span></span>
+<span class="line"><span style="color: #abb2bf">        Hello World</span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;/h1></span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;p class="subtitle"></span></span>
+<span class="line"><span style="color: #abb2bf">        My first website with &#x3C;strong>Bulma&#x3C;/strong>!</span></span>
+<span class="line"><span style="color: #abb2bf">      &#x3C;/p></span></span>
+<span class="line"><span style="color: #abb2bf">    &#x3C;/div></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;/section></span></span>
+<span class="line"><span style="color: #abb2bf">  &#x3C;/body></span></span>
+<span class="line"><span style="color: #abb2bf">&#x3C;/html></span></span></code></pre>
+<h3 id="主要结构"><mark>主要结构</mark></h3>
+<p>首先介绍下Bulma建议的<a href="https://bulma.io/documentation/layout/">结构框架</a>关系</p>
+<ul>
+<li>
+<p>一级(放在内)</p>
+<ul>
+<li>
+<p><a href="Bulma%20CSS%E6%A1%86%E6%9E%B6%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md#____Navbar__">navbar</a></p>
+</li>
+<li>
+<p><a href="https://bulma.io/documentation/layout/hero/">hero</a></p>
+</li>
+<li>
+<p><a href="https://bulma.io/documentation/layout/section/">section</a></p>
+</li>
+<li>
+<p><a href="https://bulma.io/documentation/layout/footer/">footer</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>二级(放在一级标签内)</p>
+<ul>
+<li>
+<p><a href="https://bulma.io/documentation/layout/container/">container</a></p>
+</li>
+<li>
+<p><a href="https://bulma.io/documentation/layout/tiles/">tile</a></p>
+</li>
+<li>
+<p><a href="https://bulma.io/documentation/layout/media-object/">media</a></p>
+</li>
+<li>
+<p><a href="https://bulma.io/documentation/layout/level/">level</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>以上只是建议，老手随意组合哈，新手建议老老实实先按这个架构来组织页面，当然小改动还是可以的，比如互相嵌套。</p>
+<p>我一般对于要全屏的页面会选用section，然后需要居中的模块使用container，然后二级标签，我都会放在container下。</p>
+<h3 id="导航栏navbar">导航栏：<a href="https://bulma.io/documentation/components/navbar/"><mark>Navbar</mark>﻿﻿</a></h3>
+<p>该类其实是一个组件，并不是一个Layout标签，但通常直接放在body头部。</p>
+<p>架构如下：</p>
+<ul>
+<li>
+<p>navbar ：整个导航栏的主容器</p>
+<ul>
+<li>
+<p>navbar-brand ：网站的标识，比如Logo或站名，会一直显示，不会隐藏</p>
+<ul>
+<li>navbar-burger ：只在小屏上显示，比如手机上</li>
+</ul>
+</li>
+<li>
+<p>navbar-menu ：导航栏下的内容/菜单容器</p>
+<ul>
+<li>
+<p>navbar-start / navbar-end ：start下的菜单显示在左边，end下的菜单显示在右边</p>
+<ul>
+<li>
+<p>navbar-item ：菜单类，即每个菜单都需包含该类</p>
+<ul>
+<li>
+<p>navbar-link ：</p>
+</li>
+<li>
+<p>navbar-dropdown</p>
+<ul>
+<li>navbar-divider</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

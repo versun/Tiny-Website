@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 0] Redeemer | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 0] Redeemer</h2>
+      <h3 id="task-1"><strong>TASK 1</strong></h3>
+<p><strong>Which TCP port is open on the machine?</strong></p>
+<p>6379</p>
+<h3 id="task-2"><strong>TASK 2</strong></h3>
+<p><strong>Which service is running on the port that is open on the machine?</strong></p>
+<p>redis</p>
+<h3 id="task-3"><strong>TASK 3</strong></h3>
+<p><strong>What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database</strong></p>
+<p>In-memory Database</p>
+<h3 id="task-4"><strong>TASK 4</strong></h3>
+<p><strong>Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.</strong></p>
+<p>redis-cli</p>
+<h3 id="task-5"><strong>TASK 5</strong></h3>
+<p><strong>Which flag is used with the Redis command-line utility to specify the hostname?</strong></p>
+<p>-h</p>
+<h3 id="task-6"><strong>TASK 6</strong></h3>
+<p><strong>Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?</strong></p>
+<p>info</p>
+<h3 id="task-7"><strong>TASK 7</strong></h3>
+<p><strong>What is the version of the Redis server being used on the target machine?</strong></p>
+<p>5.0.7</p>
+<h3 id="task-8"><strong>TASK 8</strong></h3>
+<p><strong>Which command is used to select the desired database in Redis?</strong></p>
+<p>select</p>
+<h3 id="task-9"><strong>TASK 9</strong></h3>
+<p><strong>How many keys are present inside the database with index 0?</strong></p>
+<p>4</p>
+<h3 id="task-10"><strong>TASK 10</strong></h3>
+<p><strong>Which command is used to obtain all the keys in a database?</strong></p>
+<p>keys *</p>
+<h3 id="submit-flag"><strong>SUBMIT FLAG</strong></h3>
+<p>try yourself</p>
+<hr>
+<h3 id="note">Note:</h3>
+<p>nmap  -sV  -p-  -T5  ip</p>
+<p>sudo apt install redis-tools</p>
+<p>redis-cli  -h  ip</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">>info</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">>select o</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">>keys \*</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">>get flag</span></span></code></pre>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

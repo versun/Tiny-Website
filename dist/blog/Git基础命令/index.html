@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>Git基础命令 | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">Git基础命令</h2>
+      <p>git add <file>    添加<br>
+git init    初始化<br>
+git commit -m <message>    提交<br>
+git status    状态<br>
+git diff <file>    工作区(work dict)和暂存区(stage)的比较<br>
+git diff —cached <file>    暂存区(stage)和分支(master)的比较<br>
+git reset HEAD <file>    把暂存区的修改撤销掉（unstage），重新放回工作区<br>
+git commit —amend    修改最后一次提交的内容，可以仅修改message，也可以添加新的文件（按正常步骤add，然后输入该命令提交）<br>
+head    指向的版本就是当前版本<br>
+git reset —hard commit_id    回到某历史版本<br>
+git log    查看提交历史，以便确定要回退到哪个版本<br>
+git reflog    查看命令历史，以便确定要回到未来的哪个版本<br>
+git remote add origin git@server-name:path/repo-name.git    关联一个远程库<br>
+git remote -v    查看远程库信息<br>
+git remote rm origin    删除已有的GitHub远程库<br>
+git remote rename origin mine    重命名origin为mine<br>
+git push -u origin master    第一次推送master分支的所有内容<br>
+git push origin master    推送最新修改<br>
+git branch dev    创建dev分支<br>
+git checkout -b dev    创建并切换一个新分支dev<br>
+git branch    查看当前分支<br>
+git checkout dev    切换到dev<br>
+git merge dev    合并dev分支到当前分支<br>
+git branch -d dev    删除dev分支,如果有未提交的内容， 需要用-D强制删除<br>
+git log —graph    分支合并图<br>
+git merge —no-ff -m “merge with no-ff” dev    禁用Fast forward，然后合并<br>
+git stash    存储当天工作现场，等以后恢复现场后继续工作<br>
+git stash list    <br>
+git stash apply    恢复存储的工作现场<br>
+git stash drop    删除存储的工作现场<br>
+git stash pop    恢复的同时并删除<br>
+git pull origin master    从远程origin抓取最新的分支master的commit，并合并master和origin/master分支<br>
+git fetch origin master    origin/master分支和远程同步，但master分支不动，可自行merge合并（主要用在，本地和远程都有各自的新commit，这种情况下，无法pull，所以要先fetch，然后merge合并修改，最后把本地最新 版本push到远程）<br>
+git branch -b dev origin/dev    在本地创建和远程分支对应的分支<br>
+git branch —set-upstream-to=origin/dev  dev    把本地dev和远程dev链接<br>
+git rebase    把本地未push的分叉提交历史整理成直线<br>
+git tag v1.0    为当前分支的commit打标签”v1.0”<br>
+git tag    查看所有标签<br>
+git log —pretty=oneline —abbrev-commit    历史提交的commit id<br>
+git tag v0.9 f52c634    为commit id为f52c634打标签v0.9<br>
+git show v0.9    查看标签信息<br>
+git tag -a v0.1 -m “version 0.1 released” 1094adb    添加标签说明<br>
+git tag -d v0.1    删除标签<br>
+git push origin v0.1    推送标签到远程<br>
+git push origin —tags    推送所有标签到远程<br>
+git push origin :refs/tags/v0.9    删除远程标签<br>
+git revert 2724e05    撤销该commit的修改，并创建新的commit，记录该还原<br>
+git reflog    查看所有记录日志<br>
+git reset HEAD    <del>—mixed（默认参数） 将HEAD</del>的commit（最新的提交）恢复到工作区—soft  恢复到暂存区—hard  删除更改^ – 表示父 commit~ – 表示第一个父 commit<br>
+git shortlog    每位贡献者在此仓库中添加了多少 commit , -s 仅显示数量-n 按数量排序<br>
+多人协作的工作模式通常是这样：</file></file></file></message></file></p>
+<ol>
+<li>
+<p>首先，可以试图用git push origin <branch-name>推送自己的修改；</branch-name></p>
+</li>
+<li>
+<p>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+</li>
+<li>
+<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+</li>
+<li>
+<p>没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！<br>
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch —set-upstream-to <branch-name> origin/<branch-name>。<br>
+这就是多人协作的工作模式，一旦熟悉了，就非常简单</branch-name></branch-name></branch-name></p>
+</li>
+</ol>
+<h2 id="从git文件夹恢复仓库文件">从.git文件夹恢复仓库文件</h2>
+<p>cd repo.git</p>
+<h3 id="创建budele文件">创建budele文件</h3>
+<p>git bundle create ./reponame.bundle —all</p>
+<h3 id="从bundle文件中clone出代码">从bundle文件中clone出代码</h3>
+<p>git clone ./reponame.bundle reponame</p>
+<h3 id="这是文件夹内会出现一个-reponame-文件夹这个文件夹内就是所有的代码文件并且还可以恢复其他分支的代码">这是文件夹内会出现一个 reponame 文件夹，这个文件夹内就是所有的代码文件并且还可以恢复其他分支的代码</h3>
+<p>git clone -b release ./reponame.bundle reponame</p>
+<h3 id="新建新的git仓库-名为-newrepo">新建新的git仓库 名为 newrepo</h3>
+<p>git remote rm origin</p>
+<h3 id="urlgit-为新的git仓库地址">url.git 为新的git仓库地址</h3>
+<p>git remote add origin newrepo.git</p>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

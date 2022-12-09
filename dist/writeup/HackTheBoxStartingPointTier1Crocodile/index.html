@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>[Hack The Box] [Starting Point] [Tier 1] Crocodile | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">[Hack The Box] [Starting Point] [Tier 1] Crocodile</h2>
+      <p><strong>TASK 1</strong></p>
+<p><strong>What nmap scanning switch employs the use of default scripts during a scan?</strong> -sC</p>
+<p><strong>TASK 2</strong></p>
+<p><strong>What service version is found to be running on port 21?</strong> vsftpd 3.0.3</p>
+<p><strong>TASK 3</strong></p>
+<p>**What FTP code is returned to us for the “Anonymous FTP login allowed” message?**230</p>
+<p><strong>TASK 4</strong></p>
+<p><strong>What command can we use to download the files we find on the FTP server?</strong> get</p>
+<p><strong>TASK 5</strong></p>
+<p><strong>What is one of the higher-privilege sounding usernames in the list we retrieved?</strong> admin</p>
+<p><strong>TASK 6</strong></p>
+<p><strong>What version of Apache HTTP Server is running on the target host?</strong> 2.4.41</p>
+<p><strong>TASK 7</strong></p>
+<p><strong>What is the name of a handy web site analysis plug-in we can install in our browser?</strong> Wappalyzer</p>
+<p><strong>TASK 8</strong></p>
+<p><strong>What switch can we use with gobuster to specify we are looking for specific filetypes?</strong> -x</p>
+<p><strong>TASK 9</strong></p>
+<p><strong>What file have we found that can provide us a foothold on the target?</strong> login.php</p>
+<p><strong>SUBMIT FLAG</strong></p>
+<p>Step:</p>
+<p>ftp $ip</p>
+<blockquote>
+<p>anonymous</p>
+</blockquote>
+<blockquote>
+<p>get allowed.userlist</p>
+</blockquote>
+<blockquote>
+<p>get allowed.userlist.passwd</p>
+</blockquote>
+<blockquote>
+<p>exit</p>
+</blockquote>
+<p>cat allowed.userlist</p>
+<p>cat allowed.userlist.passwd</p>
+<p>http://$ip/login.php</p>
+<hr>
+<p>Note:</p>
+<p><a href="/attachments/Crocodile.pdf">Crocodile.pdf</a></p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">$> nmap -sC -sV $ip</span></span>
+<span class="line"><span style="color: #abb2bf">Nmap scan report for 10.129.25.81</span></span>
+<span class="line"><span style="color: #abb2bf">Host is up (0.24s latency).</span></span>
+<span class="line"><span style="color: #abb2bf">Not shown: 998 closed tcp ports (conn-refused)</span></span>
+<span class="line"><span style="color: #abb2bf">PORT   STATE SERVICE VERSION</span></span>
+<span class="line"><span style="color: #abb2bf">21/tcp open  ftp     vsftpd 3.0.3</span></span>
+<span class="line"><span style="color: #abb2bf">| ftp-syst:</span></span>
+<span class="line"><span style="color: #abb2bf">|   STAT:</span></span>
+<span class="line"><span style="color: #abb2bf">| FTP server status:</span></span>
+<span class="line"><span style="color: #abb2bf">|      Connected to ::ffff:10.10.14.33</span></span>
+<span class="line"><span style="color: #abb2bf">|      Logged in as ftp</span></span>
+<span class="line"><span style="color: #abb2bf">|      TYPE: ASCII</span></span>
+<span class="line"><span style="color: #abb2bf">|      No session bandwidth limit</span></span>
+<span class="line"><span style="color: #abb2bf">|      Session timeout in seconds is 300</span></span>
+<span class="line"><span style="color: #abb2bf">|      Control connection is plain text</span></span>
+<span class="line"><span style="color: #abb2bf">|      Data connections will be plain text</span></span>
+<span class="line"><span style="color: #abb2bf">|      At session startup, client count was 2</span></span>
+<span class="line"><span style="color: #abb2bf">|      vsFTPd 3.0.3 - secure, fast, stable</span></span>
+<span class="line"><span style="color: #abb2bf">|_End of status</span></span>
+<span class="line"><span style="color: #abb2bf">| ftp-anon: Anonymous FTP login allowed (FTP code 230)</span></span>
+<span class="line"><span style="color: #abb2bf">| -rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist</span></span>
+<span class="line"><span style="color: #abb2bf">|_-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd</span></span>
+<span class="line"><span style="color: #abb2bf">80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))</span></span>
+<span class="line"><span style="color: #abb2bf">|_http-title: Smash - Bootstrap Business Template</span></span>
+<span class="line"><span style="color: #abb2bf">|_http-server-header: Apache/2.4.41 (Ubuntu)</span></span>
+<span class="line"><span style="color: #abb2bf">Service Info: OS: Unix</span></span></code></pre>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

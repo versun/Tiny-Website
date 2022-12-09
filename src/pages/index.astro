@@ -1,0 +1,86 @@
+---
+import Navgation from "../components/navigation.astro"
+import Footer from "../components/footer.astro"
+import Layout from "../layouts/Layout.astro";
+
+import * as uses from './misc/ThingsIUse.md';
+import * as notes from './misc/Notes.md';
+
+const project_posts = (await Astro.glob('./project/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+
+const blog_posts = (await Astro.glob('./blog/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+---
+<Layout title="Home">
+	<section class="section">
+		<div class="block">
+			<div class="image is-128x128 block">
+				<img class="is-rounded" src="/avatar.jpg" alt="Versun">
+			</div>
+			<h1 class="is-underlined  has-text-weight-bold title">Hi, I'm Versun.</h1>
+			<dl>
+				<dt><strong>keybase</strong></dt>
+				<dd><a href="https://keybase.io/versun">versun</a></dd>
+				<dt><strong>email</strong></dt>
+				<dd><a href="mailto:me@versun.me">me@versun.me</a></dd>
+				<dt><strong>pgp</strong></dt>
+				<dd><a href="/publickey.txt">F0460BFEB3EE5860</a></dd>
+				<dt><strong>repos</strong></dt>
+				<dd>
+					<a href="https://github.com/versun">/github</a>
+					<a href="https://sr.ht/~versun/">/sourcehut</a>
+				</dd>
+				<dt><strong>misc</strong></dt>
+				<dd>				
+					<a href={uses.url}>/uses</a>
+					<a href="misc/read">/read</a>
+					<a href={notes.url}>/notes</a>
+					<a href="misc/writeup">/write-up</a> <br>
+					<a href="misc/weekly">/weekly</a>
+					<a href="misc/sketch">/sketch</a>
+					<a href="misc/tool">/tool</a>
+					<a href="https://www.lexaloffle.com/bbs/?uid=41204">pico-8</a>
+				</dd>
+			</dl>
+		</div>
+		
+		<div class="block">
+		  <p class="is-underlined  has-text-weight-bold subtitle">Projects</p>
+		  
+			{project_posts.map((post) => (
+			  <div>
+				<time datetime={post.frontmatter.created}>
+				  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+					year: 'numeric',
+					month: '2-digit',
+					day: '2-digit',
+				  })}
+				</time>				
+				<a href={post.url}>{post.frontmatter.title}</a>
+			  </div>
+			))}
+		</div>
+
+        <div class="block">
+		  <p class="is-underlined  has-text-weight-bold subtitle">Blogs</p>
+          <ul>
+            {blog_posts.map((post) => (
+              <li>
+                <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  })}
+                </time>
+                <a href={post.url}>{post.frontmatter.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+	<Footer />
+</Layout>

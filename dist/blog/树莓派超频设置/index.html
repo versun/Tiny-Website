@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en">
+	<!-- Power by astro.build, bulma.io and pages.cloudflare.com -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/code_theme.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+		<title>树莓派 超频设置 | Versun</title>
+		<link rel="icon" type="image/x-icon" href="/avatar.jpg">
+	</head>
+	<body>
+			<nav class="tabs mb-4 has-background-warning">
+    
+    <ul>
+        <li><a class="has-text-black navbar-item" href="/">Home</a></li>
+    </ul>
+
+</nav><section>
+    <div class="container content" id="post">
+      <h2 class="subtitle">树莓派 超频设置</h2>
+      <p>设备：树莓派4b 4G内存<br>
+编辑/boot/config.txt<br>
+添加以下代码：<br>
+arm_freq=2000<br>
+over_voltage=10<br>
+保存，重启即可。<br>
+建议可以从1750开始超，如果能顺利重启，则再设置为2000<br>
+如果无法顺利重启，可以把SD卡插到其他电脑上，去修改config文件即可。<br>
+<strong>其他相关命令：</strong><br>
+当前电压：<br>
+vcgencmd measure_volts<br>
+当前温度：<br>
+vcgencmd measure_temp<br>
+当前频率：<br>
+sudo cat /sys/devices/system/cpu/cpu0/cpufreqq/cpuinfo_cur_freq<br>
+最大频率：<br>
+sudo cat /sys/devices/system/cpu/cpu0/cpufreqq/cpuinfo_max_freq<br>
+<strong>性能测试</strong></p>
+<ul>
+<li>
+<p>表示创建4个线程来寻找 √￣20000 以内的质数：<br>
+sysbench —num-threads=4 —test=cpu —cpu-max-prime=20000 run</p>
+</li>
+<li>
+<p>跑分软件nbench<br>
+wget &#x3C;<a href="http://www.math.utah.edu/~mayer/linux/nbench-byte-2.2.3.tar.gz">http://www.math.utah.edu/~mayer/linux/nbench-byte-2.2.3.tar.gz</a>><br>
+tar -xvzf nbench-byte-2.2.3.tar.gz<br>
+cd nbench-byte-2.2.3<br>
+make<br>
+./nbench<br>
+<strong>压力测试</strong><br>
+期间温度不超85度为正常。<br>
+sudo apt install stress<br>
+stress -c 4 -t 10m -v</p>
+</li>
+</ul>
+    </div>
+  </section><hr>
+<script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
+</script><footer class="container has-text-centered mt-6">
+  <span>
+    -<strong> 2022 · <a href="https://versun.me">Versun</a> · <a href="https://versun.me/rss.xml">rss</a></strong> -
+    <br>
+    Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
+    <br>
+    Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    <br>
+  </span>
+  <div style="color: transparent">
+    This is a honeypot:
+    <a href="mailto:2j9BV8WX3@versun.me" style="color: transparent">
+      2j9BV8WX3@versun.me
+    </a>
+    Please do not use it unless you are a spambot.
+  </div>
+</footer>
+	</body></html>

@@ -1,0 +1,32 @@
+body{
+    max-width: 820px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Fira Code,Monaco,Consolas,Ubuntu Mono,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,monospace,sans-serif;
+}
+.tabs{
+  max-width: fit-content;
+}
+a {
+    color: #eba613;
+}
+dl {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+dt {
+  float: left;
+  width: 17%;
+  padding: 0;
+  margin: 0;
+
+}
+dd {
+  float: left;
+  width: 80%;
+  padding: 0;
+  margin-left: 10px;
+}

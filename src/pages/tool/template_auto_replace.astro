@@ -1,0 +1,64 @@
+---
+import Navgation from "../../components/navigation.astro"
+import Footer from "../../components/footer.astro"
+import Layout from "../../layouts/Layout.astro"
+
+created:"2022/10/31"
+title:"Template Auto Replace"
+---
+<Layout title="Home">
+      <Navgation />
+    <section>
+      <div class="container">
+      <form id="getKeysForm" class="field">
+        <label class="label">Template:
+        <textarea id="template" class="textarea"></textarea>
+        </label>
+        <button type="submit" class="button is-link" onclick="getKeys()">Get Keys</button>
+      </form>
+
+      <form id="KeysForm" class="field">
+        <button type="submit" class="button is-link" onclick="replaceKeys()">Replace</button>
+      </form>
+
+      <div class="field">
+      <label class="label">Result:
+      <textarea id="result" class="textarea"></textarea>
+      </label>
+      </div>
+    </div>
+  </section>
+      <Footer />
+      <script type="application/javascript">
+        var keysArray
+        var template
+        
+        function getKeys() {
+        event.preventDefault();
+        var re = /\{[^\}]+\}/g;
+        template = document.getElementById("template").value.toString();
+        keysArray = Array.from(new Set(template.match(re)));
+        for(var i=0;i<keysArray.length;i++){
+            console.log(keysArray[i])
+            var newLabel = document.createElement('label');
+            newLabel.textContent = keysArray[i].toString();
+            newLabel.classList.add("label");
+            var newInput = document.createElement('input');
+            newInput.classList="keysValue input is-danger";
+            
+            document.getElementById('getKeysForm').appendChild(newLabel);
+            document.getElementById('getKeysForm').appendChild(newInput);
+        }
+        }
+        function replaceKeys(){
+        event.preventDefault();
+        var valuesArray = document.getElementsByClassName("keysValue");
+        for(var i=0; i<keysArray.length; i++){
+            template = template.replaceAll(keysArray[i].toString(),valuesArray[i].value.toString());
+        }
+        document.getElementById('result').textContent = template.toString();
+        }
+        </script>    
+
+</Layout>
+
