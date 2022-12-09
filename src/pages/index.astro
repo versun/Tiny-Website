@@ -52,13 +52,15 @@ const blog_posts = (await Astro.glob('./blog/*.{md,mdx}')).filter((post) => !pos
 		  
 			{project_posts.map((post) => (
 			  <div>
-				<time datetime={post.frontmatter.created}>
-				  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
-					year: 'numeric',
-					month: '2-digit',
-					day: '2-digit',
-				  })}
-				</time>				
+				<span>
+					<time datetime={post.frontmatter.created}>
+					{new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+						year: 'numeric',
+						month: '2-digit',
+						day: '2-digit',
+					})}
+					</time>	
+				</span>	
 				<a href={post.url}>{post.frontmatter.title}</a>
 			  </div>
 			))}
@@ -66,20 +68,20 @@ const blog_posts = (await Astro.glob('./blog/*.{md,mdx}')).filter((post) => !pos
 
         <div class="block">
 		  <p class="is-underlined  has-text-weight-bold subtitle">Blogs</p>
-          <ul>
             {blog_posts.map((post) => (
-              <li>
-                <time datetime={post.frontmatter.created}>
-                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                  })}
-                </time>
+              <div>
+				<span>
+					<time datetime={post.frontmatter.created}>
+					{new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+						year: 'numeric',
+						month: '2-digit',
+						day: '2-digit',
+					})}
+					</time>
+				</span>
                 <a href={post.url}>{post.frontmatter.title}</a>
-              </li>
+              </div>
             ))}
-          </ul>
         </div>
       </section>
 	<Footer />
