@@ -1,6 +1,6 @@
 #!/bin/bash
-astro_path="/workspaces/Tiny-Website-v3"
-amplenote_path="/workspaces/Tiny-Website-v3/notes"
+astro_path="/workspaces/Tiny-Website"
+amplenote_path="/workspaces/Tiny-Website/notes"
 astro_markdown_layout="layout: ../../layouts/BlogPost.astro"
 publish_tags=(
   "x-status/publish/project"
