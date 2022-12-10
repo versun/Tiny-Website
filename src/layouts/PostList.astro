@@ -1,0 +1,152 @@
+---
+export interface Props {
+	title: string;
+    post_type:string;
+}
+
+const { title,post_type } = Astro.props;
+
+const project_posts = (await Astro.glob('../pages/project/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+const blog_posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+const read_posts = (await Astro.glob('../pages/read/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+const sketch_posts = (await Astro.glob('../pages/sketch/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+const weekly_posts = (await Astro.glob('../pages/weekly/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+const writeup_posts = (await Astro.glob('../pages/writeup/*.{md,mdx}')).filter((post) => !post.frontmatter.draft).sort(
+	(a, b) => new Date(b.frontmatter.created).valueOf() - new Date(a.frontmatter.created).valueOf()
+);
+---
+{post_type == "project" ?
+<div class="block">
+    <p class="has-text-weight-bold subtitle">{title}</p>
+      {project_posts.map((post) => (
+          <div class="my-2"> 
+              <div class="is-size-7 has-text-grey">
+                  <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                  })}
+                  </time>	
+              </div>
+              <a href={post.url}>{post.frontmatter.title}</a>
+          </div>
+      ))}
+</div>
+:<!-- -->
+}
+
+{post_type == "blog" ?
+<div class="block">
+    <p class="has-text-weight-bold subtitle">{title}</p>
+      {blog_posts.map((post) => (
+          <div class="my-2"> 
+              <div class="is-size-7 has-text-grey">
+                  <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                  })}
+                  </time>	
+              </div>
+              <a href={post.url}>{post.frontmatter.title}</a>
+          </div>
+      ))}
+</div>
+:<!-- -->
+}
+
+{post_type == "read" ?
+<div class="block">
+    <p class="has-text-weight-bold subtitle">{title}</p>
+      {read_posts.map((post) => (
+          <div class="my-2"> 
+              <div class="is-size-7 has-text-grey">
+                  <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                  })}
+                  </time>	
+              </div>
+              <a href={post.url}>{post.frontmatter.title}</a>
+          </div>
+      ))}
+</div>
+:<!-- -->
+}
+
+{post_type == "sketch" ?
+<div class="block">
+    <p class="has-text-weight-bold subtitle">{title}</p>
+      {sketch_posts.map((post) => (
+          <div class="my-2"> 
+              <div class="is-size-7 has-text-grey">
+                  <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                  })}
+                  </time>	
+              </div>
+              <a href={post.url}>{post.frontmatter.title}</a>
+          </div>
+      ))}
+</div>
+:<!-- -->
+}
+
+{post_type == "weekly" ?
+<div class="block">
+    <p class="has-text-weight-bold subtitle">{title}</p>
+      {weekly_posts.map((post) => (
+          <div class="my-2"> 
+              <div class="is-size-7 has-text-grey">
+                  <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                  })}
+                  </time>	
+              </div>
+              <a href={post.url}>{post.frontmatter.title}</a>
+          </div>
+      ))}
+</div>
+:<!-- -->
+}
+
+{post_type == "writeup" ?
+<div class="block">
+    <p class="has-text-weight-bold subtitle">{title}</p>
+      {writeup_posts.map((post) => (
+          <div class="my-2"> 
+              <div class="is-size-7 has-text-grey">
+                  <time datetime={post.frontmatter.created}>
+                  {new Date(post.frontmatter.created).toLocaleDateString('zh-cn', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                  })}
+                  </time>	
+              </div>
+              <a href={post.url}>{post.frontmatter.title}</a>
+          </div>
+      ))}
+</div>
+:<!-- -->
+}
