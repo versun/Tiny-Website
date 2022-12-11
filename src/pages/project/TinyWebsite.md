@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Tiny Website
 uuid: 523340e0-149c-11ed-86a6-5e3d8aa45f69
-version: 150
+version: 151
 created: Fri, 05 Aug 2022 08:55:13 +0000
 tags:
 - z-class/career/blog/project
@@ -46,7 +46,7 @@ tags:
 
 ## Conclusion
 
-已初步完成[Github](https://github.com/versun/versun)，后期主要关注其他迷你项目，该网站的建设将会从简
+已初步完成[Github](https://github.com/versun/Tiny-Website/tree/v1)，后期主要关注其他迷你项目，该网站的建设将会从简
 
 ## References:
 

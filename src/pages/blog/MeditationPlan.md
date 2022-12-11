@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Meditation Plan
 uuid: 9e4274b2-1120-11ed-a2e9-7eb08a2c5cd0
-version: 1498
+version: 1511
 created: Sun, 31 Jul 2022 22:32:10 +0000
 tags:
 - z-class/healthy
@@ -40,6 +40,8 @@ tags:
 冥想基础：
 
 - 背景音乐可有可无，随你心意
+
+- 最好有专门冥想的地方，比如专用的地垫等
 
 - 两只脚平放在地上，移动到你的座椅边缘，手轻轻地放在膝盖上，打开胸腔，肩膀放松
 

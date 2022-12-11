@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Personal Bookmark Manager
 uuid: 7d439054-63df-11ed-8694-aec53b9d6759
-version: 895
+version: 897
 created: Mon, 14 Nov 2022 05:45:00 +0000
 tags:
 - y-type/resource
@@ -12,7 +12,7 @@ tags:
 
 **Created: 2022-11-14**
 
-**Status: In Progress**
+**Status: 待更新**
 
 ## Idea
 

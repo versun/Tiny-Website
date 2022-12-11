@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Tiny Website v3
 uuid: e079930a-768e-11ed-912d-9e6dd13ceda2
-version: 187
+version: 289
 created: Thu, 08 Dec 2022 00:25:52 +0000
 tags:
 - z-class/career/it
@@ -12,11 +12,11 @@ tags:
 
 **Created: 2022-12-08**
 
-**Status: In Progress**
+**Status: 博文待更新**
 
-**目的：**优化笔记到博客的发布流程
+**目的**: 优化笔记到博客的发布流程
 
-**开发日志：**
+**开发日志**：
 
 原先以为只是一个格式转换问题 (amplenote导出笔记 -> astro框架可用的markdown)
 
@@ -38,6 +38,54 @@ tags:
 
 这次页面的框架也会稍做修改，更方便后期维护。
 
-这次所有v3的代码将会放在原v2的单独文件夹下
+### 自动化脚本
 
-### **自动化脚本**
+### 框架修改
+
+添加最近更改模块
+
+### Git repo整理
+
+cp -r tiny-website v1
+
+rm -rf tiny-website/\*
+
+cd tiny-website
+
+git add .
+
+git commit -m "prepare for new branch"
+
+git branch v1
+
+git checkout v1
+
+cp -r ../v1/\* .
+
+git add .
+
+git commit -m "v1 initial commit"
+
+git push origin v1
+
+git branch v2
+
+git checkout v2
+
+cp -r ../v2/\* .
+
+git add .
+
+git commit -m "v2 initial commit"
+
+git push origin v2
+
+git checkout main
+
+cp -r ../v3/\* .
+
+git add .
+
+git commit -m "v3 initial commit"
+
+git push origin main

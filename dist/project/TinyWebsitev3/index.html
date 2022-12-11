@@ -21,9 +21,9 @@
     <div class="container content" id="post">
       <h2 class="subtitle">Tiny Website v3</h2>
       <p><strong>Created: 2022-12-08</strong></p>
-<p><strong>Status: In Progress</strong></p>
-<p>**目的：**优化笔记到博客的发布流程</p>
-<p><strong>开发日志：</strong></p>
+<p><strong>Status: 博文待更新</strong></p>
+<p><strong>目的</strong>: 优化笔记到博客的发布流程</p>
+<p><strong>开发日志</strong>：</p>
 <p>原先以为只是一个格式转换问题 (amplenote导出笔记 -> astro框架可用的markdown)</p>
 <p>但在实施的过程中，发现问题没那么简单。。。</p>
 <p>因此记录下整个过程。</p>
@@ -34,8 +34,32 @@
 <p>因此需要自动化脚本来添加astro的参数，还有astro的构建</p>
 <p>同时，新建一个git repo，只push astro build后的dist下的文件，这样cloudflare pages就无需任何的构建设置。</p>
 <p>这次页面的框架也会稍做修改，更方便后期维护。</p>
-<p>这次所有v3的代码将会放在原v2的单独文件夹下</p>
-<h3 id="自动化脚本"><strong>自动化脚本</strong></h3>
+<h3 id="自动化脚本">自动化脚本</h3>
+<h3 id="框架修改">框架修改</h3>
+<p>添加最近更改模块</p>
+<h3 id="git-repo整理">Git repo整理</h3>
+<p>cp -r tiny-website v1</p>
+<p>rm -rf tiny-website/*</p>
+<p>cd tiny-website</p>
+<p>git add .</p>
+<p>git commit -m “prepare for new branch”</p>
+<p>git branch v1</p>
+<p>git checkout v1</p>
+<p>cp -r ../v1/* .</p>
+<p>git add .</p>
+<p>git commit -m “v1 initial commit”</p>
+<p>git push origin v1</p>
+<p>git branch v2</p>
+<p>git checkout v2</p>
+<p>cp -r ../v2/* .</p>
+<p>git add .</p>
+<p>git commit -m “v2 initial commit”</p>
+<p>git push origin v2</p>
+<p>git checkout main</p>
+<p>cp -r ../v3/* .</p>
+<p>git add .</p>
+<p>git commit -m “v3 initial commit”</p>
+<p>git push origin main</p>
     </div>
   </section><hr>
 <script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
@@ -46,7 +70,7 @@
     Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
     Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
     <br>
-    <p>Last Update: 2022/12/09
+    <p>Last Update: 2022/12/11
 </p>
   </span>
   <div style="color: transparent">

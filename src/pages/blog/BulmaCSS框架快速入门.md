@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Bulma CSS框架快速入门
 uuid: eac9611a-5a68-11ed-b709-4aba79ab6e09
-version: 372
+version: 373
 created: Wed, 02 Nov 2022 04:43:37 +0000
 tags:
 - y-type/resource
@@ -10,7 +10,7 @@ tags:
 - x-status/publish/blog
 ---
 
-**Status: Pending**
+**Status: 博文待更新**
 
 由于我的博客并没有使用任何的框架，纯原生，所以css样式一直很混乱，
 
