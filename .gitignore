@@ -20,7 +20,7 @@ pnpm-debug.log*
 .DS_Store
 
 #amplenote
-notes
+notes/
 
-public/attachments
-public/images
+public/attachments/
+public/images/
