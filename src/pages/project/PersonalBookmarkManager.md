@@ -53,13 +53,13 @@ tags:
 
 整体的UI设计参考[Linkding](https://demo.linkding.link)的，简洁直观，个人很喜欢它的风格
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/7efe475d-5d1a-4bcb-83e4-83fb2b591701.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/7efe475d-5d1a-4bcb-83e4-83fb2b591701.png) [^1]
 
 我的设计呢，很简单，单栏模式，所有的操作均在当前页面上完成，减少跳转，比如点击书签编辑按钮，直接浮现对话框来修改。
 
 经过几天的调试，整体效果如下：
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/e4edab9a-6c88-46b8-91ec-621239929e15.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/e4edab9a-6c88-46b8-91ec-621239929e15.png) [^2]
 
 发布第一版[代码](https://github.com/versun/Personal-Bookmark-Manager/commit/fa344eb12a196483a62b7ca2a08678dd7016e69a) ，并部署到Cloudflare的Pages上
 
@@ -71,29 +71,29 @@ tags:
 
 首先，创建个数据库
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/9c4da506-e2c1-4c47-b6ad-61f672d74fe8.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/9c4da506-e2c1-4c47-b6ad-61f672d74fe8.png) [^3]
 
 然后还需要创建个worker来供pages去操作这个db
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/51cf3525-06ca-46db-ab25-9999ba097c4c.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/51cf3525-06ca-46db-ab25-9999ba097c4c.png) [^4]
 
 创建完以后，进入Pages，选择对应的网站名称，进入Settings下的Funstions设置
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/b2e45599-895f-4efd-b79c-fb4bf0ad6ba9.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/b2e45599-895f-4efd-b79c-fb4bf0ad6ba9.png) [^5]
 
 在Functions的下方，绑定刚刚创建的D1数据库
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/b9aa6d43-eb98-4f91-890f-e28dc3e06730.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/b9aa6d43-eb98-4f91-890f-e28dc3e06730.png) [^6]
 
 注意，Prodction和Preview都需要绑定，如下图
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/0c27ceef-93bd-4cdc-9e1f-85179fa05341.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/0c27ceef-93bd-4cdc-9e1f-85179fa05341.png) [^7]
 
 ![](/images/7d439054-63df-11ed-8694-aec53b9d6759/2274d7ca-60a7-4b66-be3b-6f356cb5ee38.png)
 
 接着绑定worker，同理，production和preview都要绑定，这里我使用同一个service和db，你也可以单独创建专用与preview的db和worker
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/452e1401-9da0-4a89-9995-60dc6ea9e817.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/452e1401-9da0-4a89-9995-60dc6ea9e817.png) [^8]
 
 由于要在本地操作db，所以本地需要安装wrangler:  `npm install -g wrangler`
 
@@ -103,7 +103,7 @@ tags:
 
 然后，修改`worker-bookmarks/wrangler.toml`配置文件：
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/c191fad0-ad7c-4a05-840e-8c779de389ef.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/c191fad0-ad7c-4a05-840e-8c779de389ef.png) [^9]
 
 本地创建个测试db: `npx wrangler d1 create d1_bookmarks`。
 
@@ -146,7 +146,7 @@ note    text
 
 由于我们在网页端已经创建了同名的worker，所以它会提示是否覆盖，选择y即可
 
-![](/images/7d439054-63df-11ed-8694-aec53b9d6759/06b97607-2979-4592-8930-ef6f9c1a54cc.png)
+![](/images/7d439054-63df-11ed-8694-aec53b9d6759/06b97607-2979-4592-8930-ef6f9c1a54cc.png) [^10]
 
 接下来就是编写api，涉及到fetch函数，完全不懂。。。看下[MDN资料](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) ，同时参考官方的[demo](https://github.com/cloudflare/d1-northwind)，照猫画虎下就可以了：
 
@@ -216,3 +216,152 @@ INSERT INTO main(title,url,tag,page,description,note) VALUES ('Google','https://
 ## Conclusion
 
 ## References:
+
+[^1]: LINKDING
+    Add bookmark
+    Bookmarks v Settings Logout
+    Bookmarks
+    Search for words or #tags
+    Search
+    Tags
+    Google
+    Search
+    #search
+    Today \| Edit Archive Remove
+    Home \| Versun
+    Today \| Edit Archive Remove
+    Today \| Edit Archive Remove
+    Icon search
+    Friday \| Edit Archive Remove
+
+[^2]: Bookmarks
+    Add
+    Delete
+    Move
+    Search bookmarks
+    Search
+    Main
+    Page 1
+    Page 2
+    O G Google #tagl, #tag2, #tag3 Search the world's information, including webpages, images, videos and more. Google has many special...
+    2022-01-01 \| edit \| delete
+    O G Google #tag1,#tag2,#tag3
+    Search the world's information, including webpages, images, videos and more. Google has many special..
+    2022-01-01 \| edit \| delete
+    O G Google #tagl,#tag2,#tag3
+    Search the world's information, including webpages, images, videos and more. Google has many special...
+    2022-01-01 \| edit \| delete
+
+[^3]: D1
+    Alpha
+    Websites
+    Use D1 to create new instances of our managed SQLite database to access from your
+    Create database
+    Domain Registration
+    Workers service.
+    Analytics
+    D1 is currently in Open Alpha and is not recommended for production data and traffic. To report bugs or
+    request features, visit Cloudflare Community Forums . To give feedback, visit our D1 Discord channel C.
+    Pages
+    Workers
+    d1_bookmarks
+    Overview
+    Tables
+    Size
+    0
+    49.15 KB
+    KV
+    Queues
+    Beta
+    Database ID:
+    D1 Alpha
+    Plans
+
+[^4]: Workers
+    Websites
+    Build serverless applications and deploy instantly across the globe for exceptional
+    performance, reliability, and scale. 08 Documentation
+    Create a Service
+    Domain Registration
+    Analytics
+    Search Services
+    Sort by
+    Q
+    Search
+    Last modified
+    Pages
+    Workers
+    worker-bookmarks
+    production
+    No recent requests
+    Overview
+    KV
+    1 Environment
+    Last modified a few seconds ago
+    Queues
+    Beta
+    D1 Alpha
+
+[^5]: < Pages
+    personal-bookmark-manager
+    Deployments
+    Functions metrics
+    Custom domains
+    Settings
+    General
+    Functions
+    Functions enable you to integrate with Wor
+    Builds & deployments
+    applications. To get started, include a / fun
+    Environment variables
+    Usage Models
+    Functions
+
+[^6]: D1 database bindings
+    Use D1 to create new instances of our managed SQLite database to access from your Functions. 08 Using D1
+    Production
+    Preview
+    There are no variables defined for this environment.
+    Add binding
+
+[^7]: D1 database bindings
+    Use D1 to create new instances of our managed SQLite database to access from your Functions. 08 Using D1
+    Production
+    Preview
+    Edit bindings
+    Variable name
+    D1 database
+    db_bookmarks_prod
+    d1_bookmarks
+
+[^8]: Service bindings
+    Bind to another Worker to invoke it directly from your code. CB) Using Service Bindings
+    Production
+    Preview
+    Edit bindings
+    Variable name
+    Service
+    worker_bookmarks_prod
+    worker-bookmarks
+
+[^9]: @ wrangler.toml U X
+    worker-bookmarks > @ wrangler.toml
+    1
+    name = "worker-bookmarks"
+    2
+    main = "src/index.ts"
+    compatibility_date = "2022-11-22"
+    4
+    5
+    \[\[ d1_databases \]\]
+    6
+    binding = "DB" # i.e. available in your Worker on env. DB
+    7
+    database_name = "d1_bookmarks"
+    8
+    database id = "HI
+
+[^10]: \[WARNING\] You are about to publish a Workers Service that was last published via the Cloudflare Dashboard.
+    Edits that have been made via the dashboard will be overridden by your local code and config.
+    Would you like to continue? (y/n)
+

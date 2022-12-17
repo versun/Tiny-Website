@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Routine
 uuid: 40f14820-0995-11ed-9763-b244f95defbd
-version: 833
+version: 858
 created: Fri, 22 Jul 2022 08:06:55 +0000
 tags:
 - z-class/career/personal/routine
@@ -197,15 +197,11 @@ tags:
 
         1. 写下3个当天的消极想法：“我太老/年轻“、”我不相信别人“
 
-1. **每天散步20分钟**
+        1. 写下今天的犯错误，包括前因后果
 
-# **Repeat Task:**
+1. <mark>**每天散步20分钟**</mark>
 
-- [ ] Backup All Notes
-
-- [ ] [Check Notes](Check%20Notes.md) 
-
-- [ ] Review Archived Notes
+1. 
 
 
 ---

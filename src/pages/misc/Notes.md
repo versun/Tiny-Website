@@ -59,7 +59,7 @@ route 10.0.0.0 255.0.0.0 vpn_gateway    #该网段走vpn网络
 
 - **Linux vps vnc via ssh**
 
-    - ref: [Guides - Deploying Kali Linux through the Linode Marketplace | Linode](https://www.linode.com/docs/products/tools/marketplace/guides/kali-linux#) 
+    - ref: [Guides - Deploying Kali Linux through the Linode Marketplace \| Linode](https://www.linode.com/docs/products/tools/marketplace/guides/kali-linux#) 
 
     1.   `ssh -L 61000:localhost:5901 -N -l \[username\] \[remote linux ip\]`
 
@@ -110,7 +110,7 @@ pkgs_dirs: ##默认缓存路径
 
 - **如何解除网页的右键限制**
 
-    - ref: [Ask HN: How to disable right-click blocking in the browser | Hacker News (ycombinator.com)](https://news.ycombinator.com/item?id=32285459) 
+    - ref: [Ask HN: How to disable right-click blocking in the browser \| Hacker News (ycombinator.com)](https://news.ycombinator.com/item?id=32285459) 
 
     - 使用Firefox，输入"about:config"，搜索"dom.event.contextmenu.enabled"，双击设为False，完成
 
@@ -234,7 +234,7 @@ bcdedit /set hypervisorlaunchtype off\
 
 - **Kali linux安装bcm无线网卡**
 
-    - apt-get update apt-get install linux-image-(*uname* − *r*|*sed*′*s*, \[−\] \* − \[−\] \* −,, ′)*linux* − *headers*−(uname -r|sed ‘s,\[^-\]*-\[^-\]*-,,’) broadcom-sta-dkms\
+    - apt-get update apt-get install linux-image-(*uname* − *r*\|*sed*′*s*, \[−\] \* − \[−\] \* −,, ′)*linux* − *headers*−(uname -r\|sed ‘s,\[^-\]*-\[^-\]*-,,’) broadcom-sta-dkms\
 modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot\
 适配的网卡型号: Broadcom BCM4311, BCM4312, BCM4313, BCM4321, BCM4322, BCM43224, BCM43225, BCM43227, BCM43228, BCM43142, BCM4331, BCM4352, BCM4360 devices (wl)
 

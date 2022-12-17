@@ -52,4 +52,4 @@ tags:
 
 - [Light & Truth](https://liyafu.com/) 
 
-- [Week 0: Tiny Website | Tiny Projects](https://tinyprojects.dev/projects/tiny_website) 
+- [Week 0: Tiny Website \| Tiny Projects](https://tinyprojects.dev/projects/tiny_website) 

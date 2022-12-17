@@ -18,7 +18,7 @@ ffuf
 
 各厂商的默认密码: [DefaultCreds](https://github.com/ihebski/DefaultCreds-cheat-sheet) 
 
-[Top 200 Most Common Password List 2021 | NordPass](https://nordpass.com/most-common-passwords-list/) 
+[Top 200 Most Common Password List 2021 \| NordPass](https://nordpass.com/most-common-passwords-list/) 
 
 [https://book.hacktricks.xyz](https://book.hacktricks.xyz) 
 

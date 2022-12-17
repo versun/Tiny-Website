@@ -42,9 +42,9 @@ do
     fi
   done
 done
-
+(cd $astro_path/src/; date +"%Y/%m/%d" > lastUpdate.md)
 mv "$amplenote_path/images" "$astro_path/public/"
 mv "$amplenote_path/attachments" "$astro_path/public/"
 (cd $astro_path; npx astro build;)
-(cd $astro_path/src/; date +"%Y/%m/%d" > lastUpdate.md)
+
 

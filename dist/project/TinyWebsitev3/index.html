@@ -21,9 +21,9 @@
     <div class="container content" id="post">
       <h2 class="subtitle">Tiny Website v3</h2>
       <p><strong>Created: 2022-12-08</strong></p>
-<p><strong>Status: 博文待更新</strong></p>
-<p><strong>目的</strong>: 优化笔记到博客的发布流程</p>
-<p><strong>开发日志</strong>：</p>
+<p><strong>Status: Completed</strong></p>
+<p><strong>目的</strong>  优化笔记到博客的发布流程</p>
+<p><strong>开发日志</strong></p>
 <p>原先以为只是一个格式转换问题 (amplenote导出笔记 -> astro框架可用的markdown)</p>
 <p>但在实施的过程中，发现问题没那么简单。。。</p>
 <p>因此记录下整个过程。</p>
@@ -34,32 +34,128 @@
 <p>因此需要自动化脚本来添加astro的参数，还有astro的构建</p>
 <p>同时，新建一个git repo，只push astro build后的dist下的文件，这样cloudflare pages就无需任何的构建设置。</p>
 <p>这次页面的框架也会稍做修改，更方便后期维护。</p>
-<h3 id="自动化脚本">自动化脚本</h3>
+<h3 id="自动化脚本"><a href="https://github.com/versun/Tiny-Website/blob/main/amplenote2astro.sh">自动化脚本</a></h3>
+<p>主要作用就是把amplenote导出的笔记格式化成astro可识别的md文件，然后把文件名中的非常规字符删除，最后就是astro build</p>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">#!/bin/bash</span></span>
+<span class="line"><span style="color: #abb2bf">astro_path="/workspaces/Tiny-Website"</span></span>
+<span class="line"><span style="color: #abb2bf">amplenote_path="/workspaces/Tiny-Website/notes"</span></span>
+<span class="line"><span style="color: #abb2bf">astro_markdown_layout="layout: ../../layouts/BlogPost.astro"</span></span>
+<span class="line"><span style="color: #abb2bf">publish_tags=(</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/project"</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/blog"</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/writeup"</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/read"</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/weekly"</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/misc"</span></span>
+<span class="line"><span style="color: #abb2bf">  "x-status/publish/sketch" </span></span>
+<span class="line"><span style="color: #abb2bf">)</span></span>
+<span class="line"><span style="color: #abb2bf">astro_pages_folder=(</span></span>
+<span class="line"><span style="color: #abb2bf">  "project"</span></span>
+<span class="line"><span style="color: #abb2bf">  "blog"</span></span>
+<span class="line"><span style="color: #abb2bf">  "writeup"</span></span>
+<span class="line"><span style="color: #abb2bf">  "read"</span></span>
+<span class="line"><span style="color: #abb2bf">  "weekly"</span></span>
+<span class="line"><span style="color: #abb2bf">  "misc"</span></span>
+<span class="line"><span style="color: #abb2bf">  "sketch"</span></span>
+<span class="line"><span style="color: #abb2bf">)</span></span>
+<span class="line"><span style="color: #abb2bf">find  "$astro_path/src/" -name "*.md" -type f|xargs rm -v ;   #remove all current markdown file</span></span>
+<span class="line"><span style="color: #abb2bf">rm -rf "$astro_path/public/images"</span></span>
+<span class="line"><span style="color: #abb2bf">rm -rf "$astro_path/public/attachments"</span></span>
+<span class="line"><span style="color: #abb2bf">#format filename</span></span>
+<span class="line"><span style="color: #abb2bf">(cd $amplenote_path; rename -e "s/[\[\]{}\s]//g" *.md)</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">for file in $amplenote_path/*.md</span></span>
+<span class="line"><span style="color: #abb2bf">do</span></span>
+<span class="line"><span style="color: #abb2bf">  for index in "${!publish_tags[@]}"</span></span>
+<span class="line"><span style="color: #abb2bf">  do</span></span>
+<span class="line"><span style="color: #abb2bf">    if grep "${publish_tags[index]}" "$file"</span></span>
+<span class="line"><span style="color: #abb2bf">    then</span></span>
+<span class="line"><span style="color: #abb2bf">      #sed -i 's/\!\[\](images\//\!\[\](https:\/\/images.versun.me\/images\//g' "$file" #use R2 CDN</span></span>
+<span class="line"><span style="color: #abb2bf">      sed -i 's/\!\[\](images\//\!\[\](\/images\//g' "$file"</span></span>
+<span class="line"><span style="color: #abb2bf">      sed -i 's/\](attachments\//\](\/attachments\//g' "$file"</span></span>
+<span class="line"><span style="color: #abb2bf">      sed -i '/^layout:/d' "$file"</span></span>
+<span class="line"><span style="color: #abb2bf">      sed -i "1 a $astro_markdown_layout" "$file"</span></span>
+<span class="line"><span style="color: #abb2bf">      mv "$file" "$astro_path/src/pages/${astro_pages_folder[index]}/" </span></span>
+<span class="line"><span style="color: #abb2bf">      break</span></span>
+<span class="line"><span style="color: #abb2bf">    fi</span></span>
+<span class="line"><span style="color: #abb2bf">  done</span></span>
+<span class="line"><span style="color: #abb2bf">done</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">mv "$amplenote_path/images" "$astro_path/public/"</span></span>
+<span class="line"><span style="color: #abb2bf">mv "$amplenote_path/attachments" "$astro_path/public/"</span></span>
+<span class="line"><span style="color: #abb2bf">(cd $astro_path; npx astro build;)</span></span>
+<span class="line"><span style="color: #abb2bf">(cd $astro_path/src/; date +"%Y/%m/%d" > lastUpdate.md)</span></span></code></pre>
 <h3 id="框架修改">框架修改</h3>
-<p>添加最近更改模块</p>
+<ul>
+<li>
+<p>把所有内容放在<a href="https://github.com/versun/Tiny-Website/blob/main/src/pages/index.astro">主页</a>上，方便浏览，不用跳来跳去</p>
+</li>
+<li>
+<p>添加<a href="https://github.com/versun/Tiny-Website/blob/main/src/layouts/PostList.astro">PostList</a>和<a href="https://github.com/versun/Tiny-Website/blob/main/src/layouts/SubPage.astro">SubPage</a>布局文件，统一文章列表的显示，也方便后期修改</p>
+</li>
+</ul>
 <h3 id="git-repo整理">Git repo整理</h3>
-<p>cp -r tiny-website v1</p>
-<p>rm -rf tiny-website/*</p>
-<p>cd tiny-website</p>
-<p>git add .</p>
-<p>git commit -m “prepare for new branch”</p>
-<p>git branch v1</p>
-<p>git checkout v1</p>
-<p>cp -r ../v1/* .</p>
-<p>git add .</p>
-<p>git commit -m “v1 initial commit”</p>
-<p>git push origin v1</p>
-<p>git branch v2</p>
-<p>git checkout v2</p>
-<p>cp -r ../v2/* .</p>
-<p>git add .</p>
-<p>git commit -m “v2 initial commit”</p>
-<p>git push origin v2</p>
-<p>git checkout main</p>
-<p>cp -r ../v3/* .</p>
-<p>git add .</p>
-<p>git commit -m “v3 initial commit”</p>
-<p>git push origin main</p>
+<p>由于之前v1和v2都是单独的一个repo，由于都是同一个项目，没必要分开，所以这次趁着v3，全部整合到一起，</p>
+<p>把v1和v2设置为分支(branch)，main分支保证最新，即目前的v3，以下是这次整理的相关命令，供参考</p>
+<ol>
+<li>
+<p>首先把旧版本v1,v2, v3都clone下来，然后删除v1,v2里面的.git文件，防止和最终版v3的git记录冲突</p>
+</li>
+<li>
+<p>在v3的repo文件夹下(Tiny Website)，删除所有文件，除了.git</p>
+</li>
+<li>
+<p>add并commit</p>
+</li>
+</ol>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">git add .</span></span>
+<span class="line"><span style="color: #abb2bf">git commit -m "prepare for new branch"</span></span></code></pre>
+<ol>
+<li>新建branch v1和v2</li>
+</ol>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">git branch v1</span></span>
+<span class="line"><span style="color: #abb2bf">git branch v2</span></span></code></pre>
+<ol>
+<li>把旧版本的数据复制过来，并push到github上</li>
+</ol>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">git checkout v1</span></span>
+<span class="line"><span style="color: #abb2bf">cp -r ../v1/* .</span></span>
+<span class="line"><span style="color: #abb2bf">git add .</span></span>
+<span class="line"><span style="color: #abb2bf">git commit -m "v1 initial commit"</span></span>
+<span class="line"><span style="color: #abb2bf">git push origin v1</span></span>
+<span class="line"><span style="color: #abb2bf"></span></span>
+<span class="line"><span style="color: #abb2bf">git checkout v2</span></span>
+<span class="line"><span style="color: #abb2bf">cp -r ../v2/* .</span></span>
+<span class="line"><span style="color: #abb2bf">git add .</span></span>
+<span class="line"><span style="color: #abb2bf">git commit -m "v2 initial commit"</span></span>
+<span class="line"><span style="color: #abb2bf">git push origin v2</span></span></code></pre>
+<ol>
+<li>把最新版本的代码复制到main中，并push</li>
+</ol>
+<pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">git checkout main</span></span>
+<span class="line"><span style="color: #abb2bf">cp -r ../v3/* .</span></span>
+<span class="line"><span style="color: #abb2bf">git add .</span></span>
+<span class="line"><span style="color: #abb2bf">git commit -m "v3 initial commit"</span></span>
+<span class="line"><span style="color: #abb2bf">git push origin main</span></span></code></pre>
+<ol>
+<li>完成</li>
+</ol>
+<p>最后就是在Cloudflare的Pages服务下，把跟目录设置为dist文件夹(astro build后的文件夹)</p>
+<p><img src="/images/e079930a-768e-11ed-912d-9e6dd13ceda2/b09cb008-8fbb-4e1c-a812-b37b7cb42347.png" alt=""> <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<p>当然，你也可以保持原来的构建设置，让cloudflare自动构建。</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>Build configurations
+Specify build settings specific to your repository. DE Configuring builds
+Build command:
+Build output directory:
+Root directory:
+/dist
+Build comments on pull requests: Enabled <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
     </div>
   </section><hr>
 <script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
@@ -70,7 +166,7 @@
     Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
     Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
     <br>
-    <p>Last Update: 2022/12/11
+    <p>Last Update: 2022/12/17
 </p>
   </span>
   <div style="color: transparent">
