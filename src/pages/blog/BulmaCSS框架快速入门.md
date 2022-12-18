@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Bulma CSS框架快速入门
 uuid: eac9611a-5a68-11ed-b709-4aba79ab6e09
-version: 373
+version: 372
 created: Wed, 02 Nov 2022 04:43:37 +0000
 tags:
 - y-type/resource

@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Things I Use
 uuid: e5e73ce8-7607-11ed-93f5-a2070f8c61d0
-version: 8
+version: 2
 created: Wed, 07 Dec 2022 08:19:34 +0000
 tags:
 - y-type/resource
@@ -44,7 +44,7 @@ tags:
 
 - Streamer: Fire TV Stick 4K
 
-- Tablet:  iPad Pro 12.9 2022, Wacom CTL-671
+- Tablet: iPad Pro 12.9 2022, Wacom CTL-671
 
 - Printer: EPSON L4163
 

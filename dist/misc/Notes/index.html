@@ -23,31 +23,31 @@
       <h3 id="该页记录平时遇到的问题和解决方法仅供个人查阅使用">该页记录平时遇到的问题和解决方法，仅供个人查阅使用</h3>
 <ul>
 <li>
-<p><strong>macOS Photos 4302 Error</strong></p>
+<p>macOS Photos 4302 Error</p>
 <ul>
 <li>按住Option + Command，在打开Photos，点击修复即可</li>
 </ul>
 </li>
 <li>
-<p><strong>git log显示中文</strong></p>
+<p>git log显示中文</p>
 <ul>
 <li>git config —global core.quotepath off</li>
 </ul>
 </li>
 <li>
-<p><strong>maOS修改hostname命令</strong></p>
+<p>maOS修改hostname命令</p>
 <ul>
 <li>sudo scutil –set HostName NEW_HOST_NAME</li>
 </ul>
 </li>
 <li>
-<p><strong>Kernel panic not syncing : System is deadlocked on memory</strong></p>
+<p>Kernel panic not syncing : System is deadlocked on memory</p>
 <ul>
 <li>今天在升级虚拟机的ubuntu 22.04系统时，由于升级了内核，需要重启， 但重启后出现错误“Kernel panic not syncing : System is deadlocked on memory”，无法进入系统 原来的内存是512M，我加到了1G后，便可以顺利进入系统</li>
 </ul>
 </li>
 <li>
-<p><strong>macOS微信隐私修改</strong></p>
+<p>macOS微信隐私修改</p>
 <ul>
 <li>
 <p>查找log文件 find ~/Library/Containers/com.tencent.xinWeChat -name “*.xlog”</p>
@@ -64,13 +64,13 @@
 </ul>
 </li>
 <li>
-<p><strong>bat / cmd / ps1 使用中文字符</strong></p>
+<p>bat / cmd / ps1 使用中文字符</p>
 <ul>
 <li><code>chcp 65001</code></li>
 </ul>
 </li>
 <li>
-<p><strong>MacOS 开启全速备份命令</strong></p>
+<p>MacOS 开启全速备份命令</p>
 <ul>
 <li>打开终端，执行如下命令开启全速备份：<br>
 sudo sysctl debug.lowpri_throttle_enabled=0<br>
@@ -79,7 +79,7 @@ sudo sysctl debug.lowpri_throttle_enabled=1</li>
 </ul>
 </li>
 <li>
-<p><strong>OpenVN客户端添加路由配置(流量分流)</strong></p>
+<p>OpenVN客户端添加路由配置(流量分流)</p>
 <ul>
 <li>
 <p>修改ovpn文件，添加以下行：</p>
@@ -92,7 +92,7 @@ route 10.0.0.0 255.0.0.0 vpn_gateway    #该网段走vpn网络</p>
 </ul>
 </li>
 <li>
-<p><strong>Linux vps vnc via ssh</strong></p>
+<p>Linux vps vnc via ssh</p>
 <ul>
 <li>
 <p>ref: <a href="https://www.linode.com/docs/products/tools/marketplace/guides/kali-linux#">Guides - Deploying Kali Linux through the Linode Marketplace | Linode</a></p>
@@ -108,25 +108,25 @@ route 10.0.0.0 255.0.0.0 vpn_gateway    #该网段走vpn网络</p>
 </ol>
 </li>
 <li>
-<p><strong>ImportError_ Could not import PIL.Image. The use of</strong> <code>**array_to_img**</code></p>
+<p>ImportError_ Could not import PIL.Image. The use of <code>array_to_img</code></p>
 <ul>
 <li>在用keras做练习时，导入图片，遇到了该错误： ImportError: Could not import PIL.Image. The use of array_to_img谷歌了一下，发现是没有安装pillow包，所以，补装上就行 conda install pillow</li>
 </ul>
 </li>
 <li>
-<p><strong>Windows下安装openai-gym</strong></p>
+<p>Windows下安装openai-gym</p>
 <ul>
 <li>第一步 下载源文件 git clone <a href="https://github.com/openai/gym.git">https://github.com/openai/gym.git</a> 第二步 进入下载好的gym文件中 cd gym 第三步 利用pip安装 pip install -e</li>
 </ul>
 </li>
 <li>
-<p><strong>Could not open static file</strong></p>
+<p>Could not open static file</p>
 <ul>
 <li>升级conda update即可</li>
 </ul>
 </li>
 <li>
-<p><strong>No module named ‘bs4’</strong></p>
+<p>No module named ‘bs4’</p>
 <ul>
 <li>之前使用：conda install beautifulsoup4<br>
 确认已经安装了正确的beautifulsoup4，对应py3版本<br>
@@ -145,7 +145,7 @@ python -m ipykernel install —user —name my_env<br>
 </ul>
 </li>
 <li>
-<p><strong>修改conda环境默认路径和缓存路径</strong></p>
+<p>修改conda环境默认路径和缓存路径</p>
 <ul>
 <li>
 <p>找到“.condarc”,一般在用户目录下“C:\Users\XXX” 添加以下新配置：<br>
@@ -167,7 +167,7 @@ pkgs_dirs: ##默认缓存路径</p>
 </ul>
 </li>
 <li>
-<p><strong>如何解除网页的右键限制</strong></p>
+<p>如何解除网页的右键限制</p>
 <ul>
 <li>
 <p>ref: <a href="https://news.ycombinator.com/item?id=32285459">Ask HN: How to disable right-click blocking in the browser | Hacker News (ycombinator.com)</a></p>
@@ -178,7 +178,7 @@ pkgs_dirs: ##默认缓存路径</p>
 </ul>
 </li>
 <li>
-<p><strong>C语言学习路线</strong></p>
+<p>C语言学习路线</p>
 <ul>
 <li>推荐书籍:<br>
 C： C Primer Plus, C和指针，C专家编程<br>
@@ -199,7 +199,7 @@ Linux的环境编程：Unix环境高级编程 ，Linux高性能服务器编程�
 </ul>
 </li>
 <li>
-<p><strong>Docker普通用户运行权限问题</strong></p>
+<p>Docker普通用户运行权限问题</p>
 <ul>
 <li>错误提示：<br>
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get “http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version”: dial unix /var/run/docker.sock: connect: permission denied<br>
@@ -209,7 +209,7 @@ sudo chmod 666 /var/run/docker.sock</li>
 </ul>
 </li>
 <li>
-<p><strong>Docker基础命令</strong></p>
+<p>Docker基础命令</p>
 <ul>
 <li>
 <p>docker run ubuntu:latest /bin/echo “Hello World!”</p>
@@ -262,7 +262,7 @@ sudo chmod 666 /var/run/docker.sock</li>
 </ul>
 </li>
 <li>
-<p><strong>Git 不同repo使用不同key</strong></p>
+<p>Git 不同repo使用不同key</p>
 <ul>
 <li>
 <p>ref: <a href="https://stackoverflow.com/questions/22768517/how-to-manage-one-only-key-per-each-git-repository">github - How to manage one only key per each git repository? - Stack Overflow</a></p>
@@ -283,10 +283,10 @@ sudo chmod 666 /var/run/docker.sock</li>
 </ul>
 </li>
 <li>
-<p><strong>/dev/shm 内存设备,类似ramdisk</strong></p>
+<p>/dev/shm 内存设备,类似ramdisk</p>
 </li>
 <li>
-<p><strong>centos-7防火墙设置</strong></p>
+<p>centos-7防火墙设置</p>
 <ul>
 <li>iptables添加的规则貌似不生效<br>
 需要使用firewall-cmd来创建规则才可以<br>
@@ -305,14 +305,14 @@ systemctl disable firewalld.service #禁止firewall开机启动firewall-cmd —s
 </ul>
 </li>
 <li>
-<p><strong>efibootmgr添加启动项</strong></p>
+<p>efibootmgr添加启动项</p>
 <ul>
 <li>efibootmgr -c -w -L “BootOptionName” -d /dev/sdb -p 1 -l \EFI\Boot\bootx64.efi<br>
 #我的启动分区所在的硬盘为/dev/sdb</li>
 </ul>
 </li>
 <li>
-<p><strong>friendlyWRT wifi无法开启</strong></p>
+<p>friendlyWRT wifi无法开启</p>
 <ul>
 <li>
 <p>ssh到friendlywrt</p>
@@ -333,7 +333,7 @@ systemctl disable firewalld.service #禁止firewall开机启动firewall-cmd —s
 </ul>
 </li>
 <li>
-<p><strong>Hash Sum mismatch 解决方案</strong></p>
+<p>Hash Sum mismatch 解决方案</p>
 <ul>
 <li>在VM中的Kali linux，apt update的时候，出现Hash Sum mismatch问题，尝试了网上各种clean，删除list文件等方法，均无效。<br>
 后来看到新的解决方案，该问题出在win10的虚拟机机制上 ，关掉即可，cmd管理员运行以下命令：<br>
@@ -343,7 +343,7 @@ bcdedit /set hypervisorlaunchtype off<br>
 </ul>
 </li>
 <li>
-<p><strong>Kali linux安装bcm无线网卡</strong></p>
+<p>Kali linux安装bcm无线网卡</p>
 <ul>
 <li>apt-get update apt-get install linux-image-(<em>uname</em> − <em>r</em>|<em>sed</em>′<em>s</em>, [−] * − [−] * −,, ′)<em>linux</em> − <em>headers</em>−(uname -r|sed ‘s,[^-]<em>-[^-]</em>-,,’) broadcom-sta-dkms<br>
 modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot<br>
@@ -351,7 +351,7 @@ modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot<br>
 </ul>
 </li>
 <li>
-<p><strong>LFS-7.7-学习注意事项</strong></p>
+<p>LFS-7.7-学习注意事项</p>
 <ul>
 <li>
 <p>建议有一定的Linux基础和开发基础后再来学习LFS，比如至少达到RHCE水准，否则没什么收获</p>
@@ -377,7 +377,7 @@ modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot<br>
 </ul>
 </li>
 <li>
-<p><strong>Linux下cuda环境搭建，并激活GPU测试</strong></p>
+<p>Linux下cuda环境搭建，并激活GPU测试</p>
 <ul>
 <li>本教程基于<a href="https://keras-cn.readthedocs.io/en/latest/for_beginners/keras_linux/">官方教程</a><br>
 首先安装系统要安装一下包 nvidia nvidia-utils cuda<br>
@@ -387,7 +387,7 @@ modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot<br>
 </ul>
 </li>
 <li>
-<p><strong>Linux搭建keras环境</strong></p>
+<p>Linux搭建keras环境</p>
 <ul>
 <li>keras环境要求python>=2.7 &#x3C;3.6 ##注意官方更新<br>
 建议安装Anaconda，来建立环境，很方便的 本教程基于Anaconda<br>
@@ -396,7 +396,7 @@ modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot<br>
 </ul>
 </li>
 <li>
-<p><strong>conda环境激活Jupyter Notebook</strong></p>
+<p>conda环境激活Jupyter Notebook</p>
 <ul>
 <li>
 <p>首先进入你要激活的环境，比如：my_env conda activate my_env</p>
@@ -413,7 +413,7 @@ modprobe -r b44 b43 b43legacy ssb brcmsmac bcma modprobe wl reboot<br>
 </ul>
 </li>
 <li>
-<p><strong>Ubuntu 18.04 修改开机启动级别</strong></p>
+<p>Ubuntu 18.04 修改开机启动级别</p>
 <ul>
 <li>切换为图形模式<br>
 sudo systemctl set-default graphical.target<br>
@@ -428,7 +428,7 @@ systemctl start lightdm</li>
 </ul>
 </li>
 <li>
-<p><strong>Ubuntu 18.10开机出现Started Bpfilter</strong></p>
+<p>Ubuntu 18.10开机出现Started Bpfilter</p>
 <ul>
 <li>
 <p>开机出现 Started Bpfilter<br>
@@ -450,7 +450,7 @@ systemctl start lightdm</li>
 </ul>
 </li>
 <li>
-<p><strong>ubuntu删除无效的应用图标</strong></p>
+<p>ubuntu删除无效的应用图标</p>
 <ul>
 <li>一般安装的应用图标在： /usr/share/applications<br>
 其他应用自动生成的图标在： ～/.local/share/applications<br>
@@ -458,7 +458,7 @@ systemctl start lightdm</li>
 </ul>
 </li>
 <li>
-<p><strong>Linux创建swap分区</strong></p>
+<p>Linux创建swap分区</p>
 <ul>
 <li>1.创建要作为swap分区的文件:增加1GB大小的交换分区，则命令写法如下，其中的count等于想要的块的数量（bs*count=文件大小）。 dd if=/dev/zero of=/var/swapfile bs=1M count=1024<br>
 2.格式化为交换分区文件: mkswap /var/swapfile #建立swap的文件系统<br>
@@ -467,7 +467,7 @@ systemctl start lightdm</li>
 </ul>
 </li>
 <li>
-<p><strong>命令行复制文件显示进度</strong></p>
+<p>命令行复制文件显示进度</p>
 <ul>
 <li>
 <p>方法一：scp命令（推荐）</p>
@@ -484,13 +484,13 @@ systemctl start lightdm</li>
 </ul>
 </li>
 <li>
-<p><strong>Linux 屏幕亮度配置文件</strong></p>
+<p>Linux 屏幕亮度配置文件</p>
 <ul>
-<li><strong>集成显卡：/sys/class/backlight/intel_backlight/brightness  改数值即可</strong></li>
+<li>集成显卡：/sys/class/backlight/intel_backlight/brightness  改数值即可</li>
 </ul>
 </li>
 <li>
-<p><strong>Linux 挂载img文件</strong></p>
+<p>Linux 挂载img文件</p>
 <ul>
 <li>
 <p>首先查看空闲的loop<br>
@@ -507,7 +507,7 @@ mount /dev/mapper/loop13p1 /mnt/img<br>
 </ul>
 </li>
 <li>
-<p><strong>Linux 有线网络和无线网络优先级问题</strong></p>
+<p>Linux 有线网络和无线网络优先级问题</p>
 <ul>
 <li>
 <p>问题：有线连接内网服务器，无线连接外网，linux无法通过无线上网<br>
@@ -527,7 +527,7 @@ ip route 10.0.0.0 dev eth0</p>
 </ul>
 </li>
 <li>
-<p><strong>树莓派 鼠标延迟问题</strong></p>
+<p>树莓派 鼠标延迟问题</p>
 <ul>
 <li>sd卡根目录，编辑cmdline.txt文件，添加：<br>
 usbhid.mousepoll=0<br>
@@ -536,20 +536,20 @@ usbhid.mousepoll=0<br>
 </ul>
 </li>
 <li>
-<p><strong>pacman无法正常安装</strong></p>
+<p>pacman无法正常安装</p>
 <ul>
 <li>pacman在安装软件的时候，提示其他软件占用，无法安装 如果确定其他软件已经关闭了，还是无法解决的话 则只需删除以下文件即可 /var/lib/pacman/db.lck</li>
 </ul>
 </li>
 <li>
-<p><strong>VirtualBox无法打开虚拟机 rc=-1908</strong></p>
+<p>VirtualBox无法打开虚拟机 rc=-1908</p>
 <ul>
 <li>无法打开虚拟机，提示： virtualbox Kernel driver not installed (rc=-1908)<br>
 解决方法很简单，只要启动vboxdrv即可 sudo modprobe vboxdrv</li>
 </ul>
 </li>
 <li>
-<p><strong>Virtualbox移机使用小记</strong></p>
+<p>Virtualbox移机使用小记</p>
 <ul>
 <li>因为目前我所有的虚拟机都放在固态的移动硬盘里，方便公司和家里都能用<br>
 在公司都配置好后，用家里的电脑却打不开vbox文件，提示“different image”错误信息<br>
@@ -558,7 +558,7 @@ usbhid.mousepoll=0<br>
 </ul>
 </li>
 <li>
-<p><strong>VMware-vmdk转vhd到Hyper-v</strong></p>
+<p>VMware-vmdk转vhd到Hyper-v</p>
 <ul>
 <li>原文链接：<a href="https://blogs.msdn.microsoft.com/timomta/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd/">https://blogs.msdn.microsoft.com/timomta/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd/</a><br>
 第一步，下载安装微软官方的<a href="http://www.microsoft.com/en-us/download/details.aspx?id=42497">转换软件</a><br>
@@ -568,7 +568,7 @@ usbhid.mousepoll=0<br>
 </ul>
 </li>
 <li>
-<p><strong>手动安装python包</strong></p>
+<p>手动安装python包</p>
 <ul>
 <li>
 <p>可以先从清华pip源下，下载对应的tar.gz包<br>
@@ -584,7 +584,7 @@ pip install name.tar.gz</p>
 </ul>
 </li>
 <li>
-<p><strong>Python venv 环境创建</strong></p>
+<p>Python venv 环境创建</p>
 <ul>
 <li>
 <p>Create a project directory</p>
@@ -609,7 +609,7 @@ pip install name.tar.gz</p>
 </ul>
 </li>
 <li>
-<p><strong>Windows LTSC版本安装应用商店</strong></p>
+<p>Windows LTSC版本安装应用商店</p>
 <ul>
 <li>
 <p>打开网址 <a href="https://store.rg-adguard.net/">https://store.rg-adguard.net/</a></p>
@@ -639,7 +639,7 @@ pip install name.tar.gz</p>
     Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
     Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
     <br>
-    <p>Last Update: 2022/12/17
+    <p>Last Update: 2022/12/18
 </p>
   </span>
   <div style="color: transparent">

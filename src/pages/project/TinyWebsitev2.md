@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Tiny Website v2
 uuid: 79b5dff4-28f8-11ed-9e81-c2af19d2d6e3
-version: 193
+version: 191
 created: Wed, 31 Aug 2022 06:45:16 +0000
 tags:
 - z-class/career/blog/project
@@ -31,7 +31,7 @@ tags:
 
 ## Conclusion
 
-已初步完成[Github](https://github.com/versun/Tiny-Website/tree/v2) 
+已初步完成[Github](https://github.com/versun/Tiny-Website/tree/v2)
 
 ## References:
 

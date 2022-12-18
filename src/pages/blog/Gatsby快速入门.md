@@ -11,7 +11,7 @@ tags:
 - x-status/publish/blog
 ---
 
-Ref: [Tutorial \| Gatsby (gatsbyjs.com)](https://www.gatsbyjs.com/docs/tutorial/) 
+Ref: [Tutorial | Gatsby (gatsbyjs.com)](https://www.gatsbyjs.com/docs/tutorial/) 
 
 ## **0. Set Up Your Development Environment**
 
@@ -35,7 +35,7 @@ Run command: `gatsby develop` or  `npm run develop`
 
 ## **2. Use and Style React Components**
 
-Example blog: [Home Page \| My First Gatsby Site (gatsbyjs.io)](https://gatsbytutorialexample.gatsbyjs.io/) 
+Example blog: [Home Page | My First Gatsby Site (gatsbyjs.io)](https://gatsbytutorialexample.gatsbyjs.io/) 
 
 ### Create new page
 

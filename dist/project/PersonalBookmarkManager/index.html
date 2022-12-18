@@ -21,7 +21,7 @@
     <div class="container content" id="post">
       <h2 class="subtitle">Personal Bookmark Manager</h2>
       <p><strong>Created: 2022-11-14</strong></p>
-<p><strong>Status: 待更新</strong></p>
+<p><strong>Status: In Progress</strong></p>
 <h2 id="idea">Idea</h2>
 <p>我原先一直使用的是<a href="https://www.start.me/">start.me</a> 的书签管理，但网络访问一直不是很顺畅，加载的很慢，可能我的书签太多了吧，再加上最近一直弹窗广告。。。</p>
 <p>所以就有了迁移的念头了，这几周试用过国内外不同的在线书签管理应用，但都没有一个能满足需求的</p>
@@ -48,32 +48,32 @@
 <span class="line"><span style="color: #abb2bf">&#x3C;/html></span></span></code></pre>
 <p>是的，依旧使用<a href="https://bulma.io">Bulma</a>的css框架， 真的很好用。</p>
 <p>整体的UI设计参考<a href="https://demo.linkding.link">Linkding</a>的，简洁直观，个人很喜欢它的风格</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/7efe475d-5d1a-4bcb-83e4-83fb2b591701.png" alt=""> <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/7efe475d-5d1a-4bcb-83e4-83fb2b591701.png" alt=""></p>
 <p>我的设计呢，很简单，单栏模式，所有的操作均在当前页面上完成，减少跳转，比如点击书签编辑按钮，直接浮现对话框来修改。</p>
 <p>经过几天的调试，整体效果如下：</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/e4edab9a-6c88-46b8-91ec-621239929e15.png" alt=""> <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/e4edab9a-6c88-46b8-91ec-621239929e15.png" alt=""></p>
 <p>发布第一版<a href="https://github.com/versun/Personal-Bookmark-Manager/commit/fa344eb12a196483a62b7ca2a08678dd7016e69a">代码</a> ，并部署到Cloudflare的Pages上</p>
 <p>接下来就是编写功能代码了，原先想直接使用Flask来搭建，毕竟用python真的很爽，但后来想了下，这个项目主要的目的是深入熟悉JavaScript和DOM，所以决定还是用纯js来实现。</p>
 <p>考虑到数据存储，用SQLite最方便，但不知道cloudflare的Pages服务要怎么使用SQLite数据库。</p>
 <p>搜索了下<a href="https://developers.cloudflare.com/pages/platform/functions/bindings/#d1-databases">官方文档</a>，发现还真可以，使用<a href="https://developers.cloudflare.com/d1/get-started/">D1 databases</a>即可实现，因为这个服务还是Alpha阶段，所以是免费的，看来还得做好备份。。</p>
 <p>首先，创建个数据库</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/9c4da506-e2c1-4c47-b6ad-61f672d74fe8.png" alt=""> <sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/9c4da506-e2c1-4c47-b6ad-61f672d74fe8.png" alt=""></p>
 <p>然后还需要创建个worker来供pages去操作这个db</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/51cf3525-06ca-46db-ab25-9999ba097c4c.png" alt=""> <sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/51cf3525-06ca-46db-ab25-9999ba097c4c.png" alt=""></p>
 <p>创建完以后，进入Pages，选择对应的网站名称，进入Settings下的Funstions设置</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/b2e45599-895f-4efd-b79c-fb4bf0ad6ba9.png" alt=""> <sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/b2e45599-895f-4efd-b79c-fb4bf0ad6ba9.png" alt=""></p>
 <p>在Functions的下方，绑定刚刚创建的D1数据库</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/b9aa6d43-eb98-4f91-890f-e28dc3e06730.png" alt=""> <sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/b9aa6d43-eb98-4f91-890f-e28dc3e06730.png" alt=""></p>
 <p>注意，Prodction和Preview都需要绑定，如下图</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/0c27ceef-93bd-4cdc-9e1f-85179fa05341.png" alt=""> <sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/0c27ceef-93bd-4cdc-9e1f-85179fa05341.png" alt=""></p>
 <p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/2274d7ca-60a7-4b66-be3b-6f356cb5ee38.png" alt=""></p>
 <p>接着绑定worker，同理，production和preview都要绑定，这里我使用同一个service和db，你也可以单独创建专用与preview的db和worker</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/452e1401-9da0-4a89-9995-60dc6ea9e817.png" alt=""> <sup><a href="#user-content-fn-8" id="user-content-fnref-8" data-footnote-ref="" aria-describedby="footnote-label">8</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/452e1401-9da0-4a89-9995-60dc6ea9e817.png" alt=""></p>
 <p>由于要在本地操作db，所以本地需要安装wrangler:  <code>npm install -g wrangler</code></p>
 <p>然后登录cloudfalre <code>npx wrangler login</code></p>
 <p>登录成功后，使用默认配置来初始化: <code>npx wrangler init worker-bookmarks</code></p>
 <p>然后，修改<code>worker-bookmarks/wrangler.toml</code>配置文件：</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/c191fad0-ad7c-4a05-840e-8c779de389ef.png" alt=""> <sup><a href="#user-content-fn-9" id="user-content-fnref-9" data-footnote-ref="" aria-describedby="footnote-label">9</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/c191fad0-ad7c-4a05-840e-8c779de389ef.png" alt=""></p>
 <p>本地创建个测试db: <code>npx wrangler d1 create d1_bookmarks</code>。</p>
 <p>接着新建一个sql文件来新建table，关于字段类型，可查看<a href="https://www.sqlite.org/datatype3.html">该文档</a></p>
 <pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">/*createTable.sql*/</span></span>
@@ -95,7 +95,7 @@
 <p>测试下：<code>npx wrangler d1 execute d1_bookmarks --command='SELECT \* FROM main'</code></p>
 <p>然后发布这个woker的设置：<code>npx wrangler publish</code></p>
 <p>由于我们在网页端已经创建了同名的worker，所以它会提示是否覆盖，选择y即可</p>
-<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/06b97607-2979-4592-8930-ef6f9c1a54cc.png" alt=""> <sup><a href="#user-content-fn-10" id="user-content-fnref-10" data-footnote-ref="" aria-describedby="footnote-label">10</a></sup></p>
+<p><img src="/images/7d439054-63df-11ed-8694-aec53b9d6759/06b97607-2979-4592-8930-ef6f9c1a54cc.png" alt=""></p>
 <p>接下来就是编写api，涉及到fetch函数，完全不懂。。。看下<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">MDN资料</a> ，同时参考官方的<a href="https://github.com/cloudflare/d1-northwind">demo</a>，照猫画虎下就可以了：</p>
 <pre is:raw="" class="astro-code" style="background-color: #282c34; overflow-x: auto;"><code><span class="line"><span style="color: #abb2bf">/*worker-bookmarks/index.ts*/</span></span>
 <span class="line"><span style="color: #abb2bf">export interface Env {</span></span>
@@ -147,168 +147,6 @@
 <p>先做导入书签的功能，尽快做出能用的最小版本，先上线用了再说。</p>
 <h2 id="conclusion">Conclusion</h2>
 <h2 id="references">References:</h2>
-<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
-<ol>
-<li id="user-content-fn-1">
-<p>LINKDING
-Add bookmark
-Bookmarks v Settings Logout
-Bookmarks
-Search for words or #tags
-Search
-Tags
-Google
-Search
-#search
-Today | Edit Archive Remove
-Home | Versun
-Today | Edit Archive Remove
-Today | Edit Archive Remove
-Icon search
-Friday | Edit Archive Remove <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-2">
-<p>Bookmarks
-Add
-Delete
-Move
-Search bookmarks
-Search
-Main
-Page 1
-Page 2
-O G Google #tagl, #tag2, #tag3 Search the world’s information, including webpages, images, videos and more. Google has many special…
-2022-01-01 | edit | delete
-O G Google #tag1,#tag2,#tag3
-Search the world’s information, including webpages, images, videos and more. Google has many special..
-2022-01-01 | edit | delete
-O G Google #tagl,#tag2,#tag3
-Search the world’s information, including webpages, images, videos and more. Google has many special…
-2022-01-01 | edit | delete <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-3">
-<p>D1
-Alpha
-Websites
-Use D1 to create new instances of our managed SQLite database to access from your
-Create database
-Domain Registration
-Workers service.
-Analytics
-D1 is currently in Open Alpha and is not recommended for production data and traffic. To report bugs or
-request features, visit Cloudflare Community Forums . To give feedback, visit our D1 Discord channel C.
-Pages
-Workers
-d1_bookmarks
-Overview
-Tables
-Size
-0
-49.15 KB
-KV
-Queues
-Beta
-Database ID:
-D1 Alpha
-Plans <a href="#user-content-fnref-3" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-4">
-<p>Workers
-Websites
-Build serverless applications and deploy instantly across the globe for exceptional
-performance, reliability, and scale. 08 Documentation
-Create a Service
-Domain Registration
-Analytics
-Search Services
-Sort by
-Q
-Search
-Last modified
-Pages
-Workers
-worker-bookmarks
-production
-No recent requests
-Overview
-KV
-1 Environment
-Last modified a few seconds ago
-Queues
-Beta
-D1 Alpha <a href="#user-content-fnref-4" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-5">
-<p>&#x3C; Pages
-personal-bookmark-manager
-Deployments
-Functions metrics
-Custom domains
-Settings
-General
-Functions
-Functions enable you to integrate with Wor
-Builds &#x26; deployments
-applications. To get started, include a / fun
-Environment variables
-Usage Models
-Functions <a href="#user-content-fnref-5" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-6">
-<p>D1 database bindings
-Use D1 to create new instances of our managed SQLite database to access from your Functions. 08 Using D1
-Production
-Preview
-There are no variables defined for this environment.
-Add binding <a href="#user-content-fnref-6" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-7">
-<p>D1 database bindings
-Use D1 to create new instances of our managed SQLite database to access from your Functions. 08 Using D1
-Production
-Preview
-Edit bindings
-Variable name
-D1 database
-db_bookmarks_prod
-d1_bookmarks <a href="#user-content-fnref-7" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-8">
-<p>Service bindings
-Bind to another Worker to invoke it directly from your code. CB) Using Service Bindings
-Production
-Preview
-Edit bindings
-Variable name
-Service
-worker_bookmarks_prod
-worker-bookmarks <a href="#user-content-fnref-8" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-9">
-<p>@ wrangler.toml U X
-worker-bookmarks > @ wrangler.toml
-1
-name = “worker-bookmarks”
-2
-main = “src/index.ts”
-compatibility_date = “2022-11-22”
-4
-5
-[[ d1_databases ]]
-6
-binding = “DB” # i.e. available in your Worker on env. DB
-7
-database_name = “d1_bookmarks”
-8
-database id = “HI <a href="#user-content-fnref-9" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-<li id="user-content-fn-10">
-<p>[WARNING] You are about to publish a Workers Service that was last published via the Cloudflare Dashboard.
-Edits that have been made via the dashboard will be overridden by your local code and config.
-Would you like to continue? (y/n) <a href="#user-content-fnref-10" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-</ol>
-</section>
     </div>
   </section><hr>
 <script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
@@ -319,7 +157,7 @@ Would you like to continue? (y/n) <a href="#user-content-fnref-10" data-footnote
     Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
     Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
     <br>
-    <p>Last Update: 2022/12/17
+    <p>Last Update: 2022/12/18
 </p>
   </span>
   <div style="color: transparent">

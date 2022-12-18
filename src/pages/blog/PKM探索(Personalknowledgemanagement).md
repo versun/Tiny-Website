@@ -83,7 +83,7 @@ tags:
 
 - 在daily note里面的todo，需要移动到对应的project或者goal笔记下
 
-- ~每个todolist，都要添加 \| ，后面跟一个project笔记的双链，或者area的，不用拖到对应的笔记中，这样在backlinks上可以看到时间线~
+- ~每个todolist，都要添加 | ，后面跟一个project笔记的双链，或者area的，不用拖到对应的笔记中，这样在backlinks上可以看到时间线~
 
 - 每个todolist，都要添加截至日期
 
@@ -169,23 +169,23 @@ task增加[emoji](https://www.amplenote.com/notes/30dc6f44-0992-11ed-b96e-7eb08a
 1. Tasks - 汇总所有笔记内的Task任务
 
 1. Calendar - 顾名思义，安排日程的地方\
-**官方的流程体系：**![](/images/3c943501-5ab5-4994-bd9c-8007fd925b5c.png) [^4]应用截图：
+**官方的流程体系：**![](/images/3c943501-5ab5-4994-bd9c-8007fd925b5c.png)应用截图：
 
 1. Jot\
-![](/images/85324158-1936-4444-a33c-cae4f9c3b413.png) [^5]
+![](/images/85324158-1936-4444-a33c-cae4f9c3b413.png)
 
 1. Notes\
-![](/images/1562e64e-c26f-4814-85dc-55cbf001898f.png) [^6]
+![](/images/1562e64e-c26f-4814-85dc-55cbf001898f.png)
 
 1. Tasks\
-![](/images/b914e46c-aabe-4779-ae01-3622ddea970b.png) [^7]
+![](/images/b914e46c-aabe-4779-ae01-3622ddea970b.png)
 
 1. Calendar\
-![](/images/3088b30f-7985-453c-8925-57b4f7f20bc9.png) [^8]笔记同时支持双链和反链\
-![](/images/b6eccf12-e569-4063-81df-c28a2639fce4.png) [^9]\
+![](/images/3088b30f-7985-453c-8925-57b4f7f20bc9.png)笔记同时支持双链和反链\
+![](/images/b6eccf12-e569-4063-81df-c28a2639fce4.png)\
 **2022-05-03 NOTE**\
 记录目前的笔记结构（更精简了）\
-![](/images/3c928d03-28ce-492e-be37-9eb2f9438a9a.png) [^10]PAR为笔记本形式，只有Archives是个组，方便后期整理笔记本\
+![](/images/3c928d03-28ce-492e-be37-9eb2f9438a9a.png)PAR为笔记本形式，只有Archives是个组，方便后期整理笔记本\
 整体更接近实际使用笔记本的直觉。
 
 ---
@@ -195,7 +195,7 @@ task增加[emoji](https://www.amplenote.com/notes/30dc6f44-0992-11ed-b96e-7eb08a
 比如，如果大类太多了，可以建立Areas来专门放些优先级更高的大类。
 
 记录下目前笔记本的大类：\
-![](/images/93d3712d-d99d-4629-a562-6867496aa759.png) [^11]
+![](/images/93d3712d-d99d-4629-a562-6867496aa759.png)
 
 ---
 
@@ -214,7 +214,7 @@ task增加[emoji](https://www.amplenote.com/notes/30dc6f44-0992-11ed-b96e-7eb08a
 
 好的，开始。\
 先说下我遇到的问题，记录在2021年12月18号的一个卡片上，如下截图：\
-![](/images/a484b896-5b77-4229-bb33-985212c5a794.png) [^12]虽然后来我搜索出来了，但已经浪费了大量时间在整理和收集曾经整理过的资料。\
+![](/images/a484b896-5b77-4229-bb33-985212c5a794.png)虽然后来我搜索出来了，但已经浪费了大量时间在整理和收集曾经整理过的资料。\
 我发现，**该问题产生的原因之一，是由于太过依赖强大的双链笔记的自动化，所谓成也萧何，败也萧何。**
 
 曾经看过玉树芝兰老师的一篇文章，说的就是在RR上产生了大量的笔记后，即使有双链，依旧会出现无法搜索到需要的笔记。\
@@ -250,7 +250,7 @@ task增加[emoji](https://www.amplenote.com/notes/30dc6f44-0992-11ed-b96e-7eb08a
 
     - 就这么一个小功能，其实在卡片笔记法中，是很重要的，因为在众多笔记中，如果要建立链接或者查找，有标题和摘要肯定要优与仅仅一行标题的
 
-    - ![](/images/fb3a6644-ea88-4a7b-91ef-3ed63c128082.png) [^13]
+    - ![](/images/fb3a6644-ea88-4a7b-91ef-3ed63c128082.png)
 
 回到标题，“知识管理，除了建立系统，还要升级你的认知”\
 **展开来说，知识管理，不仅仅只是建立软件系统，还要为你的认知建立对应的系统，然后融入到你的工作/生活的流程中。**\
@@ -342,7 +342,7 @@ This block is a placeholder for Tasks, which has been officially released on the
 
     - **你要提升的领域或技能** 2022-01-13 new
 
-    - **没有成体系或初步计划的，不能放在这里，只能在Resources里面** 2022-01-13 new \| 2022-02-14 delete
+    - **没有成体系或初步计划的，不能放在这里，只能在Resources里面** 2022-01-13 new | 2022-02-14 delete
 
     - 还有你想精进的领域，比如健身，网络安全员2022-02-14 delete
 
@@ -413,19 +413,19 @@ This block is a placeholder for Tasks, which has been officially released on the
 
     - 来不及归纳的，或者值得深入学习的，全文复制到Inbox
 
-\| 步骤\
- \| 归属\
- \| 渐进层\
- \| 笔记类型\
- \| 动作\
- \| 下一步的条件\
- \|\
-\| 1\
- \| Collection\
- \| L1: Note\
+| 步骤\
+ | 归属\
+ | 渐进层\
+ | 笔记类型\
+ | 动作\
+ | 下一步的条件\
+ |\
+| 1\
+ | Collection\
+ | L1: Note\
 L2: Bold passages\
- \| 收集\
- \|
+ | 收集\
+ |
 
 1. 导入Cubox
 
@@ -434,42 +434,42 @@ L2: Bold passages\
 1. 判断阅读信息价值
 
 1. 标注 L1\
- \| 值得学习的，或者觉得有必要开始渐进式学习的\
- \|\
-\| 2\
- \| Inbox\
- \| L2: Bold passages\
+ | 值得学习的，或者觉得有必要开始渐进式学习的\
+ |\
+| 2\
+ | Inbox\
+ | L2: Bold passages\
 L3: Highlighted passages\
- \| 临时笔记\
- \|
+ | 临时笔记\
+ |
 
 1. 建立卡片
 
 1. 全文复制 / 复制相关文章的摘要 从Cubox复制标注2022-02-14 delete new
 
 1. 加粗标注和新的关注点\
- \| 值得继续学习\
- \|\
-\| 3\
- \| Resources\
- \| L4: Mini-summary\
- \| 文献笔记\
+ | 值得继续学习\
+ |\
+| 3\
+ | Resources\
+ | L4: Mini-summary\
+ | 文献笔记\
 永久笔记\
- \|
+ |
 
 1. 对加粗的内容，选择重点进行高亮
 
 1. 可进行**转述，**添加自己的**感悟小结**等
 
 1. 等待时机，可进行总结\
- \| 有邻域项目需要关联/链接\
+ | 有邻域项目需要关联/链接\
 创建新的邻域项目\
- \|\
-\| 4\
- \| Areas\
- \| L5: Remix\
- \| 永久笔记\
- \|
+ |\
+| 4\
+ | Areas\
+ | L5: Remix\
+ | 永久笔记\
+ |
 
 1. 创建笔记，关联Resources中的多个笔记
 
@@ -477,30 +477,30 @@ L3: Highlighted passages\
 
 1. 进行**深度思考、整合**\
 随着永久笔记的增加，你将会越来越精进该领域，继而成为专家/高手\
- \| 为了完成目标，建立有期限的小目标\
- \|\
-\| 5\
- \| Projects\
- \| L5: Remix\
- \| 项目笔记\
- \|
+ | 为了完成目标，建立有期限的小目标\
+ |\
+| 5\
+ | Projects\
+ | L5: Remix\
+ | 项目笔记\
+ |
 
 1. 创建笔记，关联Areas中的单个或多个笔记
 
 1. 建立目标和期限，指定详细计划
 
 1. 开始执行\
- \| \
- \|\
-\| 6\
- \| Archives\
- \| \
- \| 归档\
- \|
+ | \
+ |\
+| 6\
+ | Archives\
+ | \
+ | 归档\
+ |
 
 1. 将完成或失败或暂停的Projects中的项目移过来\
- \| 恢复 / 重启 \
- \|
+ | 恢复 / 重启 \
+ |
 
 流程实施范例1：\
 **Reference**: \
@@ -641,7 +641,7 @@ L2: Bold passages，加粗你认为重要的内容\
 L3: Highlighted passages，从加粗的内容中，高亮你认为核心的内容\
 L4: Mini-summary，写局部或整篇的小结/感悟/想法\
 L5: Remix\
-![](/images/06c0edcd-7327-4207-b0cb-23690d097b31.jpg) [^14]
+![](/images/06c0edcd-7327-4207-b0cb-23690d097b31.jpg)
 
 ---
 
@@ -750,7 +750,7 @@ L5: Remix\
             - 进度：
 
             - 截图\
-![](/images/ba41ad1d-031e-4e17-98da-f69613dc15e3.png) [^15]                - 正在进行的子项目，记得加上TODO
+![](/images/ba41ad1d-031e-4e17-98da-f69613dc15e3.png)                - 正在进行的子项目，记得加上TODO
 
     - A : Areas 领域
 
@@ -885,7 +885,7 @@ L5: Remix\
             - {{\[\[query\]\]: {and: \[\[TODO\]\] {not: \[\[query\]\]}}}}
 
                 - 在页面内添加以上内容，之后会自动汇总所有todo，可以在sidebar随时查看\
-![](/images/aaf29012-8796-4db0-a624-08f9dacfc5e0.png) [^16]        - \[\[利用github自动备份Roam Research\]\]
+![](/images/aaf29012-8796-4db0-a624-08f9dacfc5e0.png)        - \[\[利用github自动备份Roam Research\]\]
 
     - 第七步：马上开始使用
 
@@ -958,7 +958,7 @@ L5: Remix\
         - 底部的链接模块更干净
 
         - 截图\
-![](/images/740671c8-7e52-43bc-9c65-126e076d4fbf.png) [^17]    - \*\*如果没有相关关键词，则使用Inbox或者Resource\*\*
+![](/images/740671c8-7e52-43bc-9c65-126e076d4fbf.png)    - \*\*如果没有相关关键词，则使用Inbox或者Resource\*\*
 
 - \*\*关于新建页面\*\*
 
@@ -1072,13 +1072,13 @@ L5: Remix\
 
 - 所以，Roam Research只是一个工具，背后的理念很重要，你们可以看看他的白皮书
 
-    - 原著：Conor White-Sullivan  \|  cwhitesullivan@gmail.com
+    - 原著：Conor White-Sullivan  |  cwhitesullivan@gmail.com
 
     - 英文：[https://roamresearch.com/#/app/help/page/Vu1MmjinS](https://link.zhihu.com/?target=https%3A//roamresearch.com/%23/app/help/page/Vu1MmjinS) 
 
     - 中文：[https://roamresearch.com/#/app/trade/page/nhzz3wRuM](https://link.zhihu.com/?target=https%3A//roamresearch.com/%23/app/trade/page/nhzz3wRuM) 
 
-    - 翻译：[@Zack](https://www.zhihu.com/people/91b6b9eed3b094aa9067f9d643358ff3)  \| [zack.fan@gmail.com](mailto:zack.fan@gmail.com) 
+    - 翻译：[@Zack](https://www.zhihu.com/people/91b6b9eed3b094aa9067f9d643358ff3)  | [zack.fan@gmail.com](mailto:zack.fan@gmail.com) 
 
 - 重点是，我们要尽量摆脱线性的方法去使用它，不要孤立每个知识点或者每一条笔记，要让新的知识点在旧的知识点上构建起来，这才是双链接的魅力所在。
 
@@ -1169,7 +1169,7 @@ font-weight: 300; /\\\*字体的粗细，可删除不用设置\\\*/
 对于RR，我一直是观望状态，因为RR是网页版的，数据都在云端，我比较喜欢自己掌控数据，所以一直再找替代品。先后接触过org-mode，tiddlywiki等，org的话，上手难度太高，tiddlywiki的stroll，毕竟不是强项，所以
 
 最后选了Obsidian和Remnote来做比较（比较粗糙，将就下哈）：\
-![](/images/051435e2-88a8-4e1a-9b30-43e0aec55616.jpg) [^18]\
+![](/images/051435e2-88a8-4e1a-9b30-43e0aec55616.jpg)\
 Remnote已支持win、mac、linux和Android(2020-12-22更新)
 
 最后我选择了Obsidian，不仅是因为离线存储，更因为他们的社区很活跃，开发者还是国人，回答社区里的问题很耐心，而且 [进展](https://link.zhihu.com/?target=https%3A//trello.com/b/Psqfqp7I/obsidian-roadmap)看得见很清晰。
@@ -1221,6 +1221,7 @@ Obsidian里面创建5个文件夹：Projects, Areas, Resources, Archives, attach
 
 - [x] 邮件处理时间和方式，参阅Tigo的方法
 
+---
 [^1]: 2022-08-24
 
     ~关于Daily-jots应该是保持清空状态，也就是每个jot，需要有归处，而不是保持在inbox里，~
@@ -1231,6 +1232,7 @@ Obsidian里面创建5个文件夹：Projects, Areas, Resources, Archives, attach
 
     ~还有很多无法归类的，等待自动archive吧~
 
+---
 [^2]: 2022-08-04 
 
     关于areas分类，是否可以尝试使用情绪标签或者功能标签，比如health, happiness, finances, life quality
@@ -1255,6 +1257,7 @@ Obsidian里面创建5个文件夹：Projects, Areas, Resources, Archives, attach
 
     如果每个标签的年笔记少于5个，则需要考虑该标签是否有必要存在
 
+---
 [^3]: 使用Agenda app
 
     Jun 18, 2022
@@ -1420,317 +1423,3 @@ Obsidian里面创建5个文件夹：Projects, Areas, Resources, Archives, attach
     May 4, 2022May 4, 2022
 
     从Evernote导入不完整，顾导入PDF格式和HTML格式
-
-[^4]: Jots
-    CAPTURE & WRITE
-    Notes
-    ORGANIZE & REVISE
-    Tasks
-    O
-    PLAN & PRIORITIZE
-    O
-    Calendar
-    17
-    000
-    SCHEDULE & COMPLETE
-
-[^5]: a
-    Q Search notes
-    V
-    Versun v
-    All notes
-    JOTS
-    NOTES
-    May 4th, 2022
-    TASKS
-    CALENDAR
-    Welcome, and thanks for joining us at Amplenote!
-    SHORTCUTS
-    Hit the ground running by getting familiar with the basics:
-    \*daily-jots
-    Get up to speed on composing notes and managing tasks in Amplenote: the 5-minute startup guide D.
-    TAGS
-    # amplenote-quick-start
-    2
-    O Supercharge your workflow by checking out our Top Amplenote Tips .
-    # daily-jots
-    n
-    untitled note
-    testsad
-
-[^6]: V
-    Versun v
-    7 NOTES
-    Last changed
-    JOTS
-    May 4th, 2022
-    Welcome, and thanks for joining us at
-    NOTES
-    Hit the ground running by getting familiar
-    Get up to speed on composing notes and
-    TASKS
-    8 minutes ago
-    CALENDAR
-    untitled note
-    SHORTCUTS
-    about 1 hour ago
-    Today
-    This Week
-    test2
-    Archived
-    test2
-    test-1
-    testsad
-    TAGS
-    about 1 hour ago
-    # amplenote-quick-start
-    2
-    testsad
-    about 1 hour ago
-
-[^7]: V
-    Versun v
-    Tasks
-    JOTS
-    Y Filter tasks by Note Reference
-    NOTES
-    TASKS
-    BI
-    9
-    E
-    CALENDAR
-    SHORTCUTS
-    O Click the expander button at the right of this task and change the properties of this task
-    Amplenote: the 5-minute startup guide Created almost 2 years ago
-    Due This Week
-    High Value
-    Create a Rich Footnote / by selecting text and typing ctrl + k (Mac: \* + k ).
-    TAGS
-    Amplenote: the 5-minute startup guide Created almost 2 years ago
-    # amplenote-quick-start
-    Create a Bidirectional Note Link > by typing double brackets \[ \[ then creating a new note or searching t
-    Amplenote: the 5-minute startup guide Created almost 2 years ago
-    In the settings connect your Google or Outlook account then add calendars to task domains to sync task
-    Amplenote: the 5-minute startup guide Created 9 months ago
-
-[^8]: a
-    Q Search notes
-    + New note
-    V
-    WORK
-    PERSONAL
-    v
-    0 notes
-    # 0 tags
-    May 4, 2022 \~
-    Add notes or tags to populate this area with
-    Wednesday
-    tasks.
-    Add notes
-    Add tags
-    All day
-    6AM
-    7AM
-    8AM
-
-[^9]: 7 NOTES
-    Last changed
-    May 4th, 2022
-    . ..
-    May 4th, 2022
-    #add a tag
-    Welcome, and thanks for joining us at
-    Hit the ground running by getting familiar
-    H1 H2 H3
-    GEE
-    n
-    Get up to speed on composing notes and
-    11 minutes ago
-    Welcome, and thanks for joining us at Amplenote!
-    untitled note
-    Hit the ground running by getting familiar with the basics:
-    about 1 hour ago
-    test2
-    Get up to speed on composing notes and managing tasks
-    test2
-    in Amplenote: the 5-minute startup guide .
-    test-1
-    testsad
-    O Supercharge your workflow by checking out our Top
-    about 1 hour ago
-    Amplenote Tips B.
-    testsad
-    about 1 hour ago
-    test-1
-    G
-    testsadssf
-    printf
-    about 1 hour ago
-    Amplenote: the 5-minute startup guide
-    & Hidden
-    Completed
-    \[ Backlinks
-    Welcome to Amplenote, we're glad you're
-    This note outlines how Amplenote can
-    If you have an existing library of notes in
-    about 1 hour ago
-    There are no links to this note.
-    Top Amplenote Tips
-    Find more references to this note
-
-[^10]: Notebooks
-    +
-    \[ 0-Inbox
-    IB 1-Projects
-    IB 2-Areas
-    I 3-Resources
-    4-Archives
-    IB 4-Archives
-    IF CompTIA Pentest+ Stu...
-    IF CompTIA Security+ St...
-    Files
-    Others
-    Templates
-    IF Diary
-
-[^11]: BEic4
-    \[P 0-Inbox
-    I 1-Projects
-    2-Areas
-    I English
-    IBPKM
-    Programming
-    = 3-Resources
-    I 3-Resources
-    Algorithms
-    Books
-    I Data Structure
-    Diary
-    Family
-    IT tips
-    Math
-    Painting
-    I Personal
-    Sports
-    Thinks
-    = 4-Archives
-    I 4-Archives
-    I CompTIA Pentest+ St..
-    CompTIA Security + St.
-    I Files
-    I Others
-    Templates
-    I Trash
-
-[^12]: 2021-04-25 NOTE
-
-[^13]: IF PKM
-    Y
-    . ..
-    iREL, MTUVEST,
-    PKM (Personal knowledge
-    management)
-    FROM: PKM (Personal
-    2022-02-16 NOTE HE,
-    knowledge management)
-    Resources Areas DJIA
-    Roam Researchijx , 2
-    4/5
-    2021-F6 158
-    passages
-
-[^14]: Progressive Summarization
-    Layer 5: Remix
-    Layer 4: Mini-summary
-    Layer 3: Highlighted passages
-    Layer 2: Bold passages
-    Layer 1: Notes
-    Building a Second Brain
-    @fortelabs.co
-
-[^15]: . tag: #Enlish #gain #Areas
-    . target: 506 0 BJ'S FORi
-    . deadline: \[\[April 29th, 2021\]\]
-    . progress:
-    . O \[\[A day in the life of Jeff\]\] 3/10
-    . \[\[A day in the life of Lucy\]\] 0/10
-    . \[\[Interview Questions Answered\]\] 0/6
-    . \[\[Using English at Work\]\] 0/10
-    . \[\[Business Meetings\]\] 0/10
-    . \[\[Introduction to the United States\]\] 0/100
-
-[^16]: ESLpodAFTERi
-    Todo List
-    {{query: {and: \[\[TODO\]\] {not: \[\[query\]\]}}}}
-    . tag: #Enlish #in #Areas
-    2 Results
-    . target: $60 8go FORi#
-    TODO
-    . deadline: \[\[April 29th, 2021\]\]
-    ESLpodAT Rix
-    . progress:
-    progress:
-    . O \[\[A day in the life of Jeff\]\] 3/10
-    . O \[\[A day in the life of Jeff\]\] 3/10
-    1
-    . \[\[A day in the life of Lucy\]\] 0/10
-    . \[\[Interview Questions Answered\]\] 0/6
-    . \[\[Using English at Work\]\] 0/10
-    . \[\[Business Meetings\]\] 0/10
-    . \[\[Introduction to the United States\]\] 0/100
-
-[^17]: Areas
-    5 Linked References
-    Roam Research37 51
-    . tags: #Areas #write
-
-[^18]: roamresearch.com obsidian.md
-    remnote.io
-    Yes
-    No
-    Yes
-    Yes
-    Yes
-    Yes
-    Yes
-    Yes
-    No
-    th
-    Yes
-    No( heading HC)
-    Yes
-    Yes
-    No(popup display #ft)
-    Yes
-    TODO
-    Yes
-    Yes
-    Yes
-    Unlinked #1X Yes
-    Yes
-    No
-    Graph view
-    Yes
-    Yes
-    Yes
-    Yes
-    Yes
-    $15/3
-    free
-    free
-    Client
-    Web
-    Windows, Mac, Linux
-    Web
-    Good
-    Great
-    Normal
-    Easy
-    Normal
-    Hard
-    Denie
-    AnkilJE
-    No
-    No
-    Yes
-

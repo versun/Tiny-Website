@@ -15,29 +15,9 @@ Title: metasploitable3虚拟机安装（win） Date: 2019-06-28 13:42\
 需求软件： [Packer](https://www.packer.io/intro/getting-started/install.html) [Vagrant](https://www.vagrantup.com/docs/installation/) [Vagrant Reload Plugin](https://github.com/aidanns/vagrant-reload#installation) [VirtualBox](https://www.virtualbox.org/wiki/Downloads), libvirt/qemu-kvm, or vmware (paid license required) 除了Packer，下载完解压后，把Packer.exe放到系统Path里面去，然后在cmd里面测试packer就行了 其他都是软件包安装，很方便\
 接下来就是重头戏了 该命令需要在poweshell上执行，不能在cmd中执行\
 错误1： 图片:\
-![](/images/a623e534-a780-4dcf-be82-3bfcc249064a.jpg) [^1]\
+![](/images/a623e534-a780-4dcf-be82-3bfcc249064a.jpg)\
 解决1： 管理员运行PoweShell 执行 Set-ExecutionPolicy RemoteSigned 输入y回车\
 错误2： 图片:\
-![](/images/b3cc0b0a-e920-4f77-b79b-45773c864cb0.jpg) [^2]\
+![](/images/b3cc0b0a-e920-4f77-b79b-45773c864cb0.jpg)\
 解决2： 文本编辑 build.ps1 把： $actualVersion = $actualVersion.split(“.”) 改为已安装的virtualbox的版本号：(需要你自己打开virtualbox查看版本) $actualVersion = “6.0.8” 保存\
 最后重新执行命令，等等即可。 完成
-
-[^1]: PS E: \\Downloads \\metasploitable3-master> . \\build. ps1 windows2008
-    build. pal : >/jj04x(+ E: \\Downloads\\metasploitable3-master\\build. p=\], AtEx EMILiciTHX. AXi$183,
-    28 https:/go. microsoft. com/fwlink/?LinkID=135170 \[Pf\] about_Execution_Policies.
-    ArtEnd iT :1 771: 1
-    build. pal windows2008
-    + CategoryInfo
-    SecurityError: (:) \[\] , PSSecurityException
-    FullyQualifiedErrorId : UnauthorizedAccess
-
-[^2]: PS E: \\Downloads\\metasploitable3-master> . \\build. ps1 windows2008
-    Compatible version of VirtualBox found.
-    Compatible version of Packer found.
-    PEEXT Null RikitillHE
-    Pr (tum E: \\Downloads \\metasploitable3-master \\build. ps1 :19 717 : 5
-    factualVersion = $actualVersion. split(2
-    + CategoryInfo
-    : InvalidOperation: (:) \[\] , ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : InvokeMethodOnNull
-

@@ -25,43 +25,12 @@
 需求软件： <a href="https://www.packer.io/intro/getting-started/install.html">Packer</a> <a href="https://www.vagrantup.com/docs/installation/">Vagrant</a> <a href="https://github.com/aidanns/vagrant-reload#installation">Vagrant Reload Plugin</a> <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>, libvirt/qemu-kvm, or vmware (paid license required) 除了Packer，下载完解压后，把Packer.exe放到系统Path里面去，然后在cmd里面测试packer就行了 其他都是软件包安装，很方便<br>
 接下来就是重头戏了 该命令需要在poweshell上执行，不能在cmd中执行<br>
 错误1： 图片:<br>
-<img src="/images/a623e534-a780-4dcf-be82-3bfcc249064a.jpg" alt=""> <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup><br>
+<img src="/images/a623e534-a780-4dcf-be82-3bfcc249064a.jpg" alt=""><br>
 解决1： 管理员运行PoweShell 执行 Set-ExecutionPolicy RemoteSigned 输入y回车<br>
 错误2： 图片:<br>
-<img src="/images/b3cc0b0a-e920-4f77-b79b-45773c864cb0.jpg" alt=""> <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup><br>
+<img src="/images/b3cc0b0a-e920-4f77-b79b-45773c864cb0.jpg" alt=""><br>
 解决2： 文本编辑 build.ps1 把： $actualVersion = $actualVersion.split(“.”) 改为已安装的virtualbox的版本号：(需要你自己打开virtualbox查看版本) $actualVersion = “6.0.8” 保存<br>
 最后重新执行命令，等等即可。 完成</p>
-<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
-<ol>
-<li id="user-content-fn-1">
-<p>PS E: \Downloads \metasploitable3-master> . \build. ps1 windows2008
-build. pal : >/jj04x(+ E: \Downloads\metasploitable3-master\build. p=], AtEx EMILiciTHX. AXi$183,
-28 https:/go. microsoft. com/fwlink/?LinkID=135170 [Pf] about_Execution_Policies.
-ArtEnd iT :1 771: 1
-build. pal windows2008</p>
-<ul>
-<li>CategoryInfo
-SecurityError: (:) [] , PSSecurityException
-FullyQualifiedErrorId : UnauthorizedAccess</li>
-</ul>
-<a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a>
-</li>
-<li id="user-content-fn-2">
-<p>PS E: \Downloads\metasploitable3-master> . \build. ps1 windows2008
-Compatible version of VirtualBox found.
-Compatible version of Packer found.
-PEEXT Null RikitillHE
-Pr (tum E: \Downloads \metasploitable3-master \build. ps1 :19 717 : 5
-factualVersion = $actualVersion. split(2</p>
-<ul>
-<li>CategoryInfo
-: InvalidOperation: (:) [] , ParentContainsErrorRecordException</li>
-<li>FullyQualifiedErrorId : InvokeMethodOnNull</li>
-</ul>
-<a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a>
-</li>
-</ol>
-</section>
     </div>
   </section><hr>
 <script src="https://giscus.app/client.js" data-repo="versun/Tiny-Website-by-Astro" data-repo-id="R_kgDOH8gn5w" data-category="Announcements" data-category-id="DIC_kwDOH8gn584CRQOD" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_high_contrast" data-lang="en" crossorigin="anonymous" async>
@@ -72,7 +41,7 @@ factualVersion = $actualVersion. split(2</p>
     Source code licensed <a href="https://mit-license.org/" target="_blank">MIT.</a>
     Website content licensed <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
     <br>
-    <p>Last Update: 2022/12/17
+    <p>Last Update: 2022/12/18
 </p>
   </span>
   <div style="color: transparent">

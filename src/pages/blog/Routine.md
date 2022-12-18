@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: Routine
 uuid: 40f14820-0995-11ed-9763-b244f95defbd
-version: 858
+version: 810
 created: Fri, 22 Jul 2022 08:06:55 +0000
 tags:
 - z-class/career/personal/routine
@@ -14,7 +14,7 @@ tags:
 
 每3天添加一个新习惯
 
-1.  <mark>**每天起床喝一杯水**</mark>
+1. <mark>**每天起床喝一杯水**</mark>
 
     1. 可以买个好看的水杯放床头
 
@@ -140,8 +140,6 @@ tags:
 
     1. 持续3天以上，就能感觉有活力和精神，压力也会减少，睡得更好
 
-    1. 创建个性化的自我宣言，避免使用负面词语，比如不要等……当负面情绪出现时，使用自我宣言
-
 1. <mark>**冥想**</mark>
 
     1. [Meditation Plan](Meditation%20Plan.md) 
@@ -196,37 +194,4 @@ tags:
 1. <mark>写日记</mark>
 
         1. 写下3个当天的消极想法：“我太老/年轻“、”我不相信别人“
-
         1. 写下今天的犯错误，包括前因后果
-
-1. <mark>**每天散步20分钟**</mark>
-
-1. 
-
-
----
-# Completed tasks
-
-- [x] Backup All Notes
-
-- [x] Backup All Notes
-
-- [x] Review Archived Notes
-
-- [x] Capture Dudu’s daily note
-
-- [x] Backup All Notes
-
-- [x] [Check Notes](Check%20Notes.md) 
-
-- [x] Backup All Notes
-
-- [x] Review Archived Notes
-
-- [x] [Check Notes](Check%20Notes.md) 
-
-- [x] Backup All Notes
-
-- [x] Review Archived Notes
-
-- [x] [Check Notes](Check%20Notes.md) 

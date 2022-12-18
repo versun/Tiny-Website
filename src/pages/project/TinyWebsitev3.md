@@ -154,15 +154,7 @@ git push origin main
 
 最后就是在Cloudflare的Pages服务下，把跟目录设置为dist文件夹(astro build后的文件夹)
 
-![](/images/e079930a-768e-11ed-912d-9e6dd13ceda2/b09cb008-8fbb-4e1c-a812-b37b7cb42347.png) [^1]
+![](/images/e079930a-768e-11ed-912d-9e6dd13ceda2/b09cb008-8fbb-4e1c-a812-b37b7cb42347.png)
 
 当然，你也可以保持原来的构建设置，让cloudflare自动构建。
-
-[^1]: Build configurations
-    Specify build settings specific to your repository. DE Configuring builds
-    Build command:
-    Build output directory:
-    Root directory:
-    /dist
-    Build comments on pull requests: Enabled
 
